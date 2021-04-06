@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+</head>
+
+<body>
+  <form method="POST">
+    <fieldset>
+      <legend>필수 개인 정보 입력</legend>
+        <p>아이디 : <input type="text" name="identity" size="10" required>
+        <input type="button" onclick="alert('확인되었습니다.')" value="중복확인">
+        </p>
+        <p>비밀번호 : <input type="password" name="password" size="10" required></p>
+        <p>이름 : <input type="text" name="username" size="10" required></p>
+        <p>생년월일 : <input type="date" name="birth" required></p>
+        <p>성별 : <input type="radio" name="sex" value="male" checked>남성
+        <input type="radio" name="sex" value="female">여성</p>
+        <p>E-mail : <input type="text" name="usermail" size="10" required> @ 
+          <select name="E-mail">
+            <option value="google" selected>google.com</option>
+            <option value="naver">naver.com</option>
+            <option value="daum">daum.net</option>
+            <option value="nate">nate.com</option>
+            </select></p>
+        <p>메일 수신 동의 여부 : <input type="radio" name="agree" checked>수신동의
+        <input type="radio" name="disagree">수신거부</p>
+    </fieldset>
+    <br>
+    <fieldset>
+      <legend>선택 개인 정보 입력</legend>
+        <p>
+          핸드폰 번호 : <select name="number1">
+          <option value="010" selected>010</option>
+          <option value="011">011</option>
+          <option value="016">016</option>
+          <option value="019">019</option>
+          </select> -
+          <input type="number" name="number2"> -
+          <input type="number" name="number3">
+        </p>
+        <p>직업 : <select name="job">
+          <option value="1" selected>학생</option>
+          <option value="2">직장인</option>
+          <option value="3">전문직</option>
+          <option value="4">무직</option>
+          <option value="4">기타</option>
+          </select>
+        </p>
+        <p>대학 : <input type="text" name="college" size="10"></p>
+        <p>전공 : <input type="text" name="major" size="10"></p>
+        <p>재학 기간 : <input type="date" name="from"> ~
+        <input type="date" name="to"></p>
+        <p>
+          취미 : <input type="checkbox" name="hobby" value="shopping">쇼핑
+          <input type="checkbox" name="hobby" value="internet">인터넷
+          <input type="checkbox" name="hobby" value="Listenmusic">음악감상
+          <input type="checkbox" name="hobby" value="reading">독서
+          <input type="checkbox" name="hobby" value="sports">스포츠
+        </p>
+        <p>기타 정보 작성란 : 
+          <br>
+          <textarea rows="10" cols="20"></textarea>
+        </p>
+    </fieldset>
+    <br>
+    <input type="submit" value="제출">
+    <input type="reset" value="다시 작성">
+  </form>
+</body>
+
+</html>

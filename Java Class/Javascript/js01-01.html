@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript 1일차</title>
+</head>
+
+<body>
+  <button id="btn1">클릭!!</button>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+      <script>
+        $(document).ready(function() {
+          var btn1 = document.getElementById("btn1");
+          btn1.addEventListener("click", function() {
+          alert("버튼1 클릭했습니다.");
+          });
+        });
+      </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <style>
+    h1[text]{
+      color: red;
+      background-color: grey;
+    }
+    p[text]{
+      color: blue;
+    }
+    h1[text="attr3"]{
+      color: green;
+      background-color: pink;
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 text="attr1">text속성 이름 선택자</h1>
+  <h1 text="attr2">text속성 이름 선택자</h1>
+  <p text="attr3">text속성 이름 선택자</p>
+  <h1 text="attr3">속성과 속성값 선택자</h1>
+  <p>속성 선택 없음</p>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    // 자바스크립트 출력 방법
+    // 1. html 요소에 쓰기 : innerHTML 사용
+    // 2. document에 쓰기 : document.write() 사용
+      // 1. 잘 안씀, 잘못쓰면 화면의 모든 것을 삭제시켜 확인하기 힘들어짐
+    // 3. 알림 상자에 쓰기 : window.alert(), alert() 사용 (주 사용)
+    // 4. 웹 브라우저 콘솔에 쓰기 : console.log 사용 (주 사용)
+      // 1. 정상적인 출력이 되는지 확인 해보기 위해 사용하는 개발자용 툴
+
+    // 1. html 요소에 쓰기 : innerHTML 사용
+    window.addEventListener("DOMContentLoaded", function() {
+      var ptag1 = document.getElementById("demoInnerHtml");
+      ptag1.innerHTML = 10 + 10;
+
+    // 2. document에 쓰기 : document.write() 사용
+      document.write("document.write를 사용하여 화면 출력");
+
+    // 3. 알림 상자에 쓰기 : window.alert(), alert() 사용 (주 사용)
+      alert("alert()함수를 이용하여 알림창에 출력");
+
+    // 4. 웹 브라우저 콘솔에 쓰기 : console.log 사용 (주 사용)
+      console.log("console.log() 함수를 사용하여 콘솔창에 출력")
+    });
+  </script>
+</head>
+
+<body>
+  <h3>화면에 출력하기</h3>
+  <hr>
+  <p id="demoInnerHtml"></p>
+</body>
+
+</html>
