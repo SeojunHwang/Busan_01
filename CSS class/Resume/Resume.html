@@ -5,11 +5,115 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    img {
+      text-align: center;
+    }
+    td, th {
+      border: 1px solid black;
+      text-align: center;
+    }
+    .table1 {
+      width: 100%;
+    }
+    #tb1 {
+      border-collapse: collapse;
+      table-layout: inherit;
+    }
+    #tb2 {
+      border-collapse: collapse;
+      table-layout: auto;
+    }
+    .color1 {
+      background-color: skyblue;
+    }
+    .color2 {
+      background-color: royalblue;
+      color: w;
+    }
+  </style>
   <title>Document</title>
 </head>
 
 <body>
-  <h1>이 력 서</h1>
+  <h1 style="text-align: center;">이 력 서</h1>
+  <table id="tb2">
+  </tr>
+</table>
+<table id="tb1" class="table1">
+    <tr>
+      <td colspan="6" rowspan="2" style="border: 0px"></td>
+      <th class="color1">지원분야</th>
+      <td>SW 개발자</td>
+    </tr>
+    <tr>
+      <th class="color1">희망연봉</th>
+      <td>회사내규에 따름</td>
+    </tr>
+    <tr>
+      <td colspan="10" style="border: 0px; height: 10px;"></td>
+    </tr>
+    <tr>
+      <td rowspan="8"><img src="40725741.jpg" width="100px"></td>
+    </tr>
+    <tr>
+      <td rowspan="8" style="border: 0px; width:10px;"></td>
+    </tr>
+    <tr>
+      <th colspan="2" class="color1">이름</th>
+      <td colspan="5">황서준( 黃 舒 俊 , Hwang Seojun)</td>
+    </tr>
+    <tr>
+      <th colspan="2" class="color1">주민등록번호</th>
+      <td colspan="5">920510-XXXXXXX</td>
+    </tr>
+    <tr>
+      <th colspan="2" class="color1">생년월일</th>
+      <td colspan="5">1992년 05월 10일 (양력)</td>
+    </tr>
+    <tr>
+      <th colspan="2" class="color1">주소</th>
+      <td colspan="5">부산시 수영구 광안동</td>
+    </tr>
+    <tr>
+      <th rowspan="2" class="color1">전화번호</th>
+      <th class="color1">집전화</th>
+      <td colspan="2">051-123-4567</td>
+      <th class="color1">E-mail</th>
+      <td colspan="2">gyualord@gmail.com</td>
+    </tr>
+    <tr>
+      <th class="color1">휴대전화</th>
+      <td colspan="2">010-1234-5678</td>
+      <th class="color1">비상연락처</th>
+      <td colspan="2">010-3456-7890</td>
+    </tr>
+  </table>
+  <p></p>
+  <table id="tb1" class="table1">
+    <tr>
+      <th rowspan="3" class="color2">학력사항</th>
+      <th class="color1">학력사항</th>
+      <th class="color1">출신학교명</th>
+      <th class="color1">전공</th>
+      <th class="color1">졸업구분</th>
+      <th class="color1">학점</th>
+    </tr>
+    <tr>
+      <td>2009.03 ~ 2011.02</td>
+      <td>고등학교</td>
+      <td>이과계열</td>
+      <td>졸업</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>2011.03 ~ 2011.08</td>
+      <td>대학교</td>
+      <td>물리학과</td>
+      <td>중퇴</td>
+      <td>-</td>
+    </tr>
+  </table>
 </body>
 
 </html>
