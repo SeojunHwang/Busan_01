@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+    // 1. for : 가장 많이 사용하는 반복문
+    console.log(1);
+    console.log(2);
+    console.log(3);
+    console.log(4);
+    console.log(5);
+    console.log(6);
+    console.log(7);
+    console.log(8);
+    console.log(9);
+
+    console.log("\n------for문을 사용하여 출력------\n")
+
+    for (var i = 0; i < 10; i++) {
+    // 초기식 - var i = 0;
+    // 조건식 - i < 10;
+    // 증감식 - i++
+      console.log(i);
+    }
+
+    console.log("\n------문제 1------\n")
+    // 문제 1) for문을 사용하여 1 ~ 10까지의 갑을 모두 합하여 화면에 출력하세요.
+    // 결과는 55가 출력.
+    // for문 외부에 값을 저장할 변수가 따로 필요함.
+
+    // var result;
+    // 변수 result는 메모리 상에 선언만 되고 초기화되지 않았기 때문에 기본값이 undefined로 설정됨.
+    // undefined는 정수타입의 데이터 타입이아니기 때문에 숫자와 연산이 불가능 하여 undefined와 숫자타입과 연산 후 결과가 NaN(Not a Number)이 출력됨.
+
+    // 자바스크립트에서 연산용으로 사용할 변수에 초기화가 중요함.
+    var result = 0; // 1 ~ 10까지의 합을 저장할 변수
+
+    for (var i = 1; i < 11; i++) {
+      result = result + i;
+    }
+
+    console.log("1 ~ 10까지의 합은 " + result + "입니다.");
+    //for문은 증감
+
+
+    // 2. while : 가장 기본적인 반복문
+    //   1. 초기식이 while문 밖에 존재함.
+    //   2. 증감식이 실행코드 영역(코드블럭)에 같이 존재함
+    //   3. 조건식만 while문 키워드와 함께 사용
+    //   4. while문은 초기식과 증감식이 while문 선언과 동시에 존재하는 것이 아니기 때문에
+    //      초기식은 while문이 종료된 후에도 계속 메모리에 남아있으며, 증감식은 사용하는 위치에 따라 결과가 다르게 출력될 수 있음.
+
+    console.log("\n------주의점 1. 증감식 위치------\n")
+    console.log("\n------증감식을 마지막에 사용------\n")
+
+    var count = 0;
+    while (count < 10) {
+      console.log(count); //화면 출력 먼저
+      count++; // 이후 초기식 증감
+    }
+    // 초기식 - var count = 0;
+    // 조건식 - (count < 10)
+    // 증감식 - count++;
+    
+    console.log("\n------증감식을 처음에 사용------\n")
+
+    var count = 0;
+    while (count < 10) {
+      count++; // 초기식 증감 먼저
+      console.log(count); // 화면출력
+    }
+
+    console.log("\n------주의점 2. 초기식의 값이 남아있음------\n")
+    console.log("\n------초기식 처음 사용------\n")
+
+    // 초기식에 사용된 변수를 계속 활용할 경우 기존의 while문에서 증감된 데이터가 그대로 메모리에 남아 있기 때문에 오류가 발생할 가능성이 높음.
+    // for문의 경우는 초기식, 조건식, 증감식을 한번에 입력하도록 형태를 고정하고 있어서 이러한 재활용 오류가 발생할 가능성이 낮음.
+    var count2 = 0;
+    while (count2 < 5) {
+      console.log(count2);
+      count2++;
+    }
+
+    console.log("\n------초기식 재활용 사용------\n")
+
+    // 초기식 설정 없이 위의 초기식을 재활용하여 사용하겠다하고 바로 조건식을 쓸 경우
+    while (count2 < 5) {
+      console.log(count2);
+      count2++;
+    }
+
+    console.log("\n------주의점 3. 증감식 미 입력------\n")
+
+    // 증감식 부분을 미입력하게 되면 무한루프에 빠짐.
+    var count3 = 0;
+    while (count3 < 5) {
+      console.log(count3);
+      count3++; // 생략
+    }
+
+    console.log("\n------문제 2------\n")
+    // 문제 2) while문을 사용하여 숫자 1 ~ 10까지의 합을 구하는 프로그램을 작성하시오.
+    var result = 0;
+    var count = 1;
+    
+    while (count < 11) {
+      result = result + count;
+      count++
+    }
+    console.log("1 ~ 10까지의 합은 " + result + "입니다.");
+
+    console.log("\n------do ~ whlie문------\n")
+    // do ~ while 문
+    // while문과 동일한 형태의 반복문, do ~ whlie문은 조건문을 나중에 확인하는 형태의 반복문, 무조건 1번은 반복문을 실행하는 형태의 반복문.
+
+    console.log("\n------조건이 true일 경우------\n")
+    var count4 = 0; // 1. 초기식
+    do {
+      console.log(count4); // 2. 반복 코드
+      count4++; // 3. 증감식
+    } while (count4 < 5); // 4. 조건식
+
+    console.log("\n------조건이 false일 경우------\n")
+    do {
+      console.log(count4); // 2. 반복 코드
+      count4++; // 3. 증감식
+    } while (count4 < 5); // 4. 조건식
+
+    console.log("\n------break와 continue------\n")
+    // 1. break
+    //   반복문 및 switch ~ case 문에서 사용되며, break문을 만나면 해당 반복문 및 Switch ~ case 문을 즉시 종료함.
+
+    console.log("\n------break 사용 시------\n")
+    for (var i = 0; i < 10; i++) {
+      if (i == 5) {
+        break;
+      }
+      console.log("현재 1의 값 : " + i);
+    }
+    
+    // 2. continue
+    //   반복문에서 사용되며, continue 문을 만나면 해당 루프를 종료하고 다음 루프를 시작함.
+
+    console.log("\n------continue 사용 시------\n")
+    for (var i = 0; i < 10; i++) {
+      if (i == 5) {
+        continue;
+      }
+      console.log("현재 1의 값 : " + i);
+    }
+
+  </script>
+
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>

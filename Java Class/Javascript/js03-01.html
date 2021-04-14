@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    var day; //오늘 요일 정보를 저장할 변수
+    var week = new Date().getDay(); 
+    // 현재 날짜 및 시간을 받아오는 변수 선언 및 현재 날짜 및 시간을 받아옴.
+    // Date 객체는 자바스크립트에서 지원하는 날짜 및 시간을 제공하는 기본 객체.
+    // getDay() 함수는 현재날짜의 요일을 가져오는 함수, 0~6까지의 숫자로 가져옴.
+    // 0 : 일요일 ~ 6 : 토요일
+
+    console.log(week);
+    alert(week);
+
+    switch (week) {
+      case 0:
+      day = "일요일";
+      break;
+      
+      case 1:
+      day = "월요일";
+      break;
+      
+      case 2:
+      day = "화요일";
+      break;
+      
+      case 3:
+      day = "수요일";
+      break;
+      
+      case 4:
+      day = "목요일";
+      break;
+      
+      case 5:
+      day = "금요일";
+      break;
+      
+      case 6:
+      day = "토요일";
+      break;
+    }
+
+    console.log("오늘은 " + day + "입니다.");
+
+
+    console.log("\n--------else if 문으로 변환-----------\n")
+    day = ""; // "" - 빈 문자열을 의미
+    week = new Date().getDay();
+
+    if (week == 1) {
+      day = "월요일";
+    }
+    else if (week == 2) {
+      day = "화요일";
+    }
+    else if (week == 3) {
+      day = "수요일";
+    }
+    else if (week == 4) {
+      day = "목요일";
+    }
+    else if (week == 5) {
+      day = "금요일";
+    }
+    else {
+      day = "주말";
+    }
+    
+    console.log("오늘은 " + day + "입니다.");
+    alert("오늘은 " + day + "입니다.");
+
+
+    console.log("\n--------break 생략문-----------\n")
+    var text;
+    var week = new Date().getDay();
+
+    switch (week) {
+      case 1:
+      case 2:
+      text = "HTML5";
+      break;
+      
+      case 3:
+      case 4:
+      text = "자바스크립트";
+      break;
+      
+      case 5:
+      case 6:
+      text = "영어";
+      break;
+      
+      case 0:
+      default:
+      text = "수영";
+    }
+
+    console.log("오늘은 " + text + "를 하는 날입니다.");
+
+  </script>
+
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
