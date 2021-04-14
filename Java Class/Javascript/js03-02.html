@@ -153,6 +153,101 @@
       console.log("현재 1의 값 : " + i);
     }
 
+    console.log("\n------문제 3------\n")
+    // 문제 3) for 문을 사용하여 지정한 구구단의 단수를 출력하는 프로그램을 작성하세요.
+    var dan = prompt("출력할 구구단 단수를 입력해 주세요.");
+    dan = Number(dan);
+    
+    for (var i = 1; i < 10; i++) {
+      console.log(dan + " * " + i + " = " + dan * i);
+    }
+
+    console.log("\n------문제 4------\n")
+    // 문제 4) while 문을 사용하여 지정한 구구단의 단수를 출력하는 프로그램을 작성하세요.
+    dan = prompt("출력할 구구단 단수를 입력해 주세요.");
+    dan = Number(dan);
+
+    var count = 1;
+    
+    while (count < 10) {
+      console.log(dan + " * " + count + " = " + dan * count)
+      count++;
+    }
+
+    // prompt() : 자바스크립트에서 사용자 입력을 받기 위한 함수
+    // Number() : 데이터를 숫자형 타입으로 변환하는 함수, 문자열형 데이터를 숫자형으로 변환함.
+    // var num = prompt("숫자를 입력해주세요."); // 사용자 입력
+    // num = Number(num); // 입력된 숫자를 정수형으로 변환
+    // alert("입력한 숫자는 " + num + "입니다.");
+
+    console.log("\n------2중 for문을 사용하여 구구단 전체 출력------\n")
+    // 구구단 전체 출력하기
+    // 2중 for문 사용
+    // 제어문, 반복문은 모두 중첩하여 사용할 수 있음.
+    for (var i = 2; i < 10; i++) {
+      for (var j = 1; j < 10; j++) {
+        console.log(i + " * " + j + " = " + i * j)
+      }
+    }
+
+    console.log("\n------문제 5------\n")
+    console.log("\n------2중 while문을 사용하여 구구단 전체 출력------\n")
+    // 문제 5) 2중 while 문을 사용하여 구구단 전체를 출력하는 프로그램을 작성하세요.
+    // 초기식의 변수를 다시 초기화 시키는 작업이 필요함.
+    var dan = 2;
+    var count = 1; // 내부의 while문에서 처음 실행되었을 때 count의 숫자가 10까지 올라감, 그리고 count를 다시 1로 초기화해줘야 함.
+    
+    while (dan < 10) {
+      // 이곳에 var count = 1;을 써서 초기화 해줌.
+      // var count = 1;
+      // 외부의 while문이 실행될 때마다 count변수를 새로 선언.
+      // 외부에서 count변수를 사용할 수 없음.
+      while (count < 10) {
+        console.log(dan + " * " + count + " = " + dan * count);
+        count++;
+      }
+      count = 1; // 밑에 count =1;을 써서 초기화 해주거나 or 위의
+      dan++;
+    }
+
+    console.log("\n------문제 6------\n")
+    // 문제 6) 사용자에게서 숫자를 입력받아 홀수인지 짝수인지 구분하는 프로그램을 작성하세요.
+    // if문, % 사용
+    
+    var num = prompt("숫자를 입력해주세요", "0");
+    // prompt() 함수로 입력받은 데이터는 모두 문자열로 처리됨.
+    
+    // isNaN() : 매개변수로 받은 데이터가 숫자인지 아닌지를 판별하는 함수.
+    // 숫자가 아닐경우 true를 출력, 숫자일 경우 false를 출력.
+    if (isNaN(num) == false) {
+      num = Number(num);
+
+      
+      if ((num % 2) == 0) {
+        console.log("입력된 값은 " + num + "이고, 짝수입니다.")
+      }
+      else {
+        console.log("입력된 값은 " + num + "이고, 홀수입니다.")
+      }
+    }
+    else {
+      alert("입력된 값이 숫자가 아닙니다.");
+    }
+
+    console.log("\n------문제 7------\n")
+    // 문제 7) 1 ~ 100까지의 숫자 중 3의 배수를 화면에 모두 출력하고, 몇개인지 개수도 함께 출력하는 프로그램을 작성하세요.
+    // for, if, % 사용
+    var count = 0; // 3의 배수를 카운트 할 변수
+
+    for(var i = 1; i <= 100; i++) {
+      if((i % 3) == 0) {
+        console.log("3의 배수 : " + i)
+        count++;
+      }
+    }
+
+    console.log("3의 배수가 " + count + "개 입니다.");
+
   </script>
 
   <title>Document</title>
