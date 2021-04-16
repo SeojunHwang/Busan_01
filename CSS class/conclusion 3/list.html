@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  
+  <style>
+    .bg-main {
+      background-color: rgb(177, 109, 31); color:#fff; 
+      font-weight: bold; 
+      padding-top: 10px; 
+      padding-bottom: 10px;
+    }
+
+    body {
+      background: burlywood;
+      font-family: 'Jua', sans-serif;
+    }
+
+    .footer {
+      background-color: #333; color:#ccc; 
+      padding-top: 70px; padding-bottom: 50px; 
+      font-size: 20px;
+    }
+  </style>
+
+  <!-- style css -->
+  <link rel="stylesheet" href="css/style1.css">
+  
+  <!-- font-family: 'Jua', sans-serif; -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+  <title>상품 리스트</title>
+</head>
+
+<body>
+    <!-- header -->
+    <div class="container-fluid text-center bg-main"> 
+      <h1>슈즈트리</h1> 
+      <img src="img/pngegg.png" width="10%"> 
+      <p></p>
+      <p>신발의 모든 것!</p> 
+    </div>
+  
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home.html">
+          <img src="./img/pngegg.png" alt="" width="30" height="24">
+          슈즈트리</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="home.html">홈</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Sign up.html">회원가입</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                상품 목록
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="list.html">구두</a></li>
+                <li><a class="dropdown-item" href="#">운동화</a></li>
+                <li><a class="dropdown-item" href="#">아기 신발</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  
+    <div style="padding: 30px;"></div>
+
+  <div class="container">
+    <div>
+      <h2>브로그 없는 옥스포드</h2>
+      <a href="details webpage.html"><img src="img/Orange Sale.png" width="50%"></a>
+      <p></p>
+      <ul>
+        <li>가장 기본적인 구두</li>
+        <li>유행타지 않고 깔끔합니다</li>
+        <li>모던한 스타일을 좋아하시는 분께 추천</li>
+      </ul>
+    </div>
+    <div style="padding: 30px;"></div>
+    <div class="container">
+      <h2>상품 준비중</h2>
+      <ul>
+        <li>상품 준비중</li>
+      </ul>
+    </div>
+    <div style="padding: 30px;"></div>
+    <div class="container">
+      <h2>상품 준비중</h2>
+      <ul>
+        <li>상품 준비중</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="container-fluid text-center footer">
+    <p>Shoestree by K / Designed by J</p> 
+  </div>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+    </script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

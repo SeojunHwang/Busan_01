@@ -11,21 +11,49 @@
     integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
   <style>
-    body {
-      background: white;
-      font-family: 'Do Hyeon', sans-serif;
+    .bg-main {
+      background-color: rgb(177, 109, 31);
+      color: #fff;
+      font-weight: bold;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
 
+    body {
+      background: burlywood;
+      font-family: 'Jua', sans-serif;
+    }
+
+    .wrap1 {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .footer {
+      background-color: #333; color:#ccc; 
+      padding-top: 70px; padding-bottom: 50px; 
+      font-size: 20px;
+    }
   </style>
 
-  <!-- font-family: 'Do Hyeon', sans-serif; -->
+  <!-- style css -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- font-family: 'Jua', sans-serif; -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
   <title>상세 페이지</title>
 </head>
 
 <body>
+  <!-- header -->
+  <div class="container-fluid text-center bg-main">
+    <h1>슈즈트리</h1>
+    <img src="img/pngegg.png" width="10%">
+    <p></p>
+    <p>신발의 모든 것!</p>
+  </div>
+
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="home.html">
@@ -49,7 +77,7 @@
               상품 목록
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="details webpage.html">구두</a></li>
+              <li><a class="dropdown-item" href="list.html">구두</a></li>
               <li><a class="dropdown-item" href="#">운동화</a></li>
               <li><a class="dropdown-item" href="#">아기 신발</a></li>
             </ul>
@@ -70,7 +98,83 @@
   <div style="padding: 30px;"></div>
 
   <div class="container">
-    <img src="img/Orange Sale.png" width="100%">
+    <div class="product_view">
+      <h2>브로그 없는 옥스포드 (2/11 ~ 2/22까지 50% 세일)</h2>
+      <table>
+        <caption>
+          <details class="hide">
+            <summary>상품정보</summary>
+            판매가, 상품코드, 옵션 및 결제금액 안내
+          </details>
+        </caption>
+        <colgroup>
+          <col style="width:173px;">
+          <col>
+        </colgroup>
+        <tbody>
+          <tr>
+            <th>판매가</th>
+            <td class="price">129,000</td>
+          </tr>
+          <tr>
+            <th>상품코드</th>
+            <td>C004843</td>
+          </tr>
+          <tr>
+            <th>제조사/공급사</th>
+            <td>CONY / 라리사</td>
+          </tr>
+          <tr>
+            <th>구매수량</th>
+            <td>
+              <div class="length">
+                <input type="number" min="1" value="1">
+                <a href="#a">증가</a>
+                <a href="#a">감소</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>사용가능쿠폰</th>
+            <td>0개</td>
+          </tr>
+          <tr>
+            <th>옵션선택</th>
+            <td>
+              <select>
+                <option>기본(+0)</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th>배송비</th>
+            <td>무료배송</td>
+          </tr>
+          <tr>
+            <th>결제금액</th>
+            <td class="total"><b>129,000</b>원</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="img">
+        <img src="img/Orange Sale.png" alt="">
+        <ul>
+          <li class="on"><a href="#a"><img src="img/Orange Sale.png" alt=""></a></li>
+          <li><a href="#a"><img src="img/Orange Sale.png" alt=""></a></li>
+        </ul>
+      </div>
+      <div class="btns">
+        <a href="#a" class="btn1">장바구니</a>
+        <a href="#a" class="btn2">구매하기</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 30px;"></div>
+
+  <!-- footer -->
+  <div class="container-fluid text-center footer">
+    <p>Shoestree by K / Designed by J</p>
   </div>
 
   <!-- Optional JavaScript; choose one of the two! -->
