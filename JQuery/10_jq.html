@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <script src="jquery-3.6.0.js"></script>
+  <script>
+    $(document).ready(function () {
+      var xWidth = 100;
+      var yHeight = 100;
+      $("div").click(function () {
+        $(this).width(xWidth).addClass("box")
+        $(this).height(yHeight).addClass("box")
+        xWidth = xWidth - 10;
+        yHeight = yHeight - 10;
+      });
+    });
+  </script>
+  <style>
+    div {
+      width: 100px; height: 100px;
+      float: left; margin: 5px;
+      background: yellow;
+    }
+    .box {
+      background: red;
+    }
+  </style>
+  <title>title name</title>
+</head>
+
+<body>
+  <div>박스 1</div>
+  <div>박스 2</div>
+  <div>박스 3</div>
+  <div>박스 4</div>
+  <div>박스 5</div>
+</body>
+
+</html>

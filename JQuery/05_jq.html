@@ -10,6 +10,10 @@
         $("p:first", this).text("마우스 포인터 들어옴");
         $("p:last", this).text(++n);
       });
+      $("div.out").mouseleave(function () {
+        $("p:first", this).text("마우스 포인터 나감");
+        $("p:last", this).text("최종 횟수 : " + n);
+      });
     });
   </script>
   <style>

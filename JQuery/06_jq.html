@@ -10,6 +10,18 @@
         $("p:first", this).text("마우스 포인터 들어옴");
         $("p:last", this).text(++n);
       });
+      $("div.out").mouseleave(function () {
+        $("p:first", this).text("마우스 포인터 나감");
+        $("p:last", this).text("최종 횟수 : " + n);
+      });
+      $("div.out").mousedown(function () {
+        $("p:first", this).hide();
+        $("p:last", this).text("메세지 사라짐");
+      });
+      $("div.out").mouseup(function () {
+        $("p:first", this).show();
+        $("p:last", this).text("최종 횟수 : " + n);
+      });
     });
   </script>
   <style>
@@ -28,7 +40,6 @@
   <div class="out">
     <p>마우스 이벤트 알아보기</p>
     <p>0</p>
-  </div>
 </body>
 
 </html>
