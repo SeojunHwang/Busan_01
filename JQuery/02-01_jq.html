@@ -6,7 +6,7 @@
   <script>
     $(document).ready(function() {
       $("button").click(function() {
-        $("p").hide();
+        $("p").toggle()
       });
     });
   </script>
@@ -14,8 +14,8 @@
 </head>
 
 <body>
-  <p>메시지 : 제이쿼리를 공부하고 있습니다.</p>
-  <button>메세지 삭제</button>
+  <p>본문 내용</p>
+  <button>내용 보이기/숨기기</button>
 </body>
 
 </html>
