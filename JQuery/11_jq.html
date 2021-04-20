@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <script src="jquery-3.6.0.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("button.b1").click(function() {
+        $("img").animate( {
+          width: '100px'
+        });
+      });
+    });
+    $(document).ready(function() {
+      $("button.b2").click(function() {
+        $("img").animate( {
+          width: '200px'
+        });
+      });
+    });
+    $(document).ready(function() {
+      $("button.b3").click(function() {
+        $("img").animate( {
+          width: '300px'
+        });
+      });
+    });
+  </script>
+  <style>
+    .css_pic {
+      height: 430px;
+      text-align: center;
+    }
+    .css_pic img {
+      width: 250px;
+    }
+  </style>
+  <title>title name</title>
+</head>
+
+<body>
+  <div class="css_pic">
+    <p>버튼을 누르면 그림의 크기가 바뀝니다.</p>
+    <button class="b1">가로 100픽셀</button>
+    <button class="b2">가로 200픽셀</button>
+    <button class="b3">가로 300픽셀</button>
+    <br />
+    <img name="pic1" src="../HTML Class/kakao.jpg" width="500px">
+  </div>
+</body>
+
+</html>
