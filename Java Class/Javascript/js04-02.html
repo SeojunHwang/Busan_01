@@ -12,72 +12,232 @@
     // sum1(덧셈), sub1(뺄셈), multi1(곱셈), div1(나눗셈), sum2, sub2, multi2, div2, sum3, sub3, multi3, div3, sum4, sub4, multi4, div4
 
     function sum1() {
-      var a;
-      var b;
-      console.log(a + b); 
-    }
-    function sub1() {
-      var a;
-      var b;
-      console.log(a - b); 
-    }
-    function multi1() {
-      var a;
-      var b;
-      console.log(a * b); 
-    }
-    function div1() {
-      var a;
-      var b;
-      console.log(a / b); 
-    }
-
-    function sum2 (a, b) {
+      var a = 10;
+      var b = 20;
       console.log(a + b);
     }
-    function sub2 (a, b) {
+
+    function sub1() {
+      var a = 10;
+      var b = 20;
       console.log(a - b);
     }
-    function multi2 (a, b) {
+
+    function multi1() {
+      var a = 10;
+      var b = 20;
       console.log(a * b);
     }
-    function div2 (a, b) {
+
+    function div1() {
+      var a = 10;
+      var b = 20;
       console.log(a / b);
     }
+    sum1();
+    sub1();
+    multi1();
+    div1();
+
+    function sum2(a, b) {
+      console.log(a + b);
+    }
+
+    function sub2(a, b) {
+      console.log(a - b);
+    }
+
+    function multi2(a, b) {
+      console.log(a * b);
+    }
+
+    function div2(a, b) {
+      console.log(a / b);
+    }
+    sum2(10, 20);
+    sub2(10, 20);
+    multi2(10, 20);
+    div2(10, 20);
 
     function sum3() {
       var a = 10;
       var b = 20;
       return a + b;
     }
+
     function sub3() {
       var a = 10;
       var b = 20;
       return a - b;
     }
+
     function multi3() {
       var a = 10;
       var b = 20;
       return a * b;
     }
+
     function div3() {
       var a = 10;
       var b = 20;
-      return a / b;
+      return a / b; // 호출시점으로 결과값 반환. = 이 결과값이 그 다음 호출 하는 자리로 그대로 들어감.
     }
+    var result = sum3(); // result 값으로 들어가면서 다른 곳에서 사용가능해짐.
+    console.log(result);
+    var result = sub3();
+    console.log(result);
+    var result = multi3();
+    console.log(result);
+    var result = div3();
+    console.log(result);
 
     function sum4(a, b) {
       return a + b;
     }
+
     function sub4(a, b) {
       return a - b;
     }
+
     function multi4(a, b) {
       return a * b;
     }
+
     function div4(a, b) {
       return a / b;
     }
+    result = sum4(10, 20);
+    console.log(result);
+    result = sub4(10, 20);
+    console.log(result);
+    result = multi4(10, 20);
+    console.log(result);
+    result = div4(10, 20);
+    console.log(result);
+
+    console.log("\n====== 함수 사용하기 ======\n")
+
+    // prompt(); : 자바스클비트에서 사용자 입력을 받는 함수, 문자열로 데이터를 받아옴.
+
+    function kukbab(like) {
+      if (like == "국밥") {
+        console.log("오늘 점심은 국밥입니다.");
+      } else {
+        console.log("오늘 점심은 정식 백반입니다.");
+      }
+    }
+
+    var result = prompt("오늘 점심 메뉴를 입력하세요", "국밥");
+
+    kukbab(result);
+
+    console.log("\n====== 함수 1 ======\n")
+
+    function funcScore(score) {
+      if (score > 90) {
+        console.log("당신의 점수는 " + score + "이고, A학점입니다.")
+      } else if (score > 80) {
+        console.log("당신의 점수는 " + score + "이고, B학점입니다.")
+      } else if (score > 70) {
+        console.log("당신의 점수는 " + score + "이고, C학점입니다.")
+      } else if (score > 60) {
+        console.log("당신의 점수는 " + score + "이고, D학점입니다.")
+      } else if (score > 50) {
+        console.log("당신의 점수는 " + score + "이고, F학점입니다.")
+      }
+    }
+
+    var score = prompt("점수를 입력해주세요 : ", "87");
+    score = Number(score); // prompt로 입력 받는 것은 모두 문자열이 되므로 숫자로 바꿔줘야 한다.
+
+    funcScore(score);
+
+    console.log("\n ----- 문제 2 ----- \n")
+    // 문제 2) 사용자 입력을 통해서 국어, 영어, 수학에 대한 점수를 각각 입력받고 총 점수 및 평균 점수를 출력하는 프로그램을 작성하세요.
+    // 총 점수 및 평균을 구하는 부분을 함수로 구현
+    // 함수명 : scoreTotalAvg
+
+    function scoreTotalAvg(kor, eng, math) {
+      var total = kor + eng + math;
+      var avg = total / 3;
+
+      console.log("국어, 영어, 수학의 총점은 " + total + " 점 입니다.");
+      console.log("국어, 영어, 수학의 평균점은 " + avg + " 점 입니다.");
+    }
+
+    var korScore = prompt("국어점수를 입력해 주세요");
+    var engScore = prompt("영어점수를 입력해 주세요");
+    var mathScore = prompt("수학점수를 입력해 주세요");
+
+    korScore = Number(korScore);
+    engScore = Number(engScore);
+    mathScore = Number(mathScore);
+
+    scoreTotalAvg(korScore, engScore, mathScore);
+
+    console.log("\n ----- 문제 3 ----- \n")
+    // 문제 3) 문제 2번의 함수 scoreTotalAvg를 수정하여 scoreTotal, scoreAvg로 각각 나누고,
+    // scoreTotal에서는 국어, 영어, 수학 과목의 총점을 계산하여 반환하고, scoreAvg에서는 3과목의 평균값을 반환하는 함수를 작성하고, 평균 점수 및 학점을 출력하는 프로그램을 작성하세요.
+
+    function scoreTotal(kor, eng, math) {
+      var total = kor + eng + math;
+      return total;
+    }
+
+    function scoreAvg(total) {
+      var avg = total / 3
+      return avg;
+    }
+
+    function scoreLevel(avg) {
+      var level;
+
+      if (avg > 90) {
+        level = "A";
+      } else if (avg > 80) {
+        level = "B";
+      } else if (avg > 70) {
+        level = "C";
+      } else if (avg > 60) {
+        level = "D";
+      } else if (avg > 50) {
+        level = "F";
+      }
+      console.log("당신의 점수는 " + avg + "이고, " + level + "등급입니다.");
+    };
+
+    var korScore = prompt("국어점수를 입력해 주세요 : ");
+    var engScore = prompt("영어점수를 입력해 주세요 : ");
+    var mathScore = prompt("수학점수를 입력해 주세요 : ");
+
+    korScore = Number(korScore);
+    engScore = Number(engScore);
+    mathScore = Number(mathScore);
+
+    var totalScore = scoreTotal(korScore, engScore, mathScore);
+    var avgScore = scoreAvg(totalScore);
+
+    console.log("국영수 총합은 " + totalScore + " 입니다.");
+    console.log("국영수 평균은 " + avgScore + " 입니다.");
+
+    scoreLevel(avgScore);
+
+    console.log("\n ----- 문제 4 ----- \n")
+    // 문제 4) 사용자 입력을 받아서 지정한 구구단 단수를 출력하는 프로그램을 작성하세요.
+    // 구구단을 출력하는 부분을 함수로 작성하세요
+    // 함수명 " gugudan"
+    // 출력형태 : 2 * 1 = 2 ~ 2 * 9 = 18
+
+    function gugudan(dan) {
+      for (var i = 1; i <= 9; i++) {
+        console.log(dan + " * " + i + " = " + dan * i);
+      }
+    }
+
+    var dan = prompt("출력할 구구단 단수를 입력해 주세요.", 5);
+    dan = Number(dan);
+
+    gugudan(dan);
   </script>
   <title>Document</title>
 </head>
