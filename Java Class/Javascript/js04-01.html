@@ -178,22 +178,48 @@
 
     console.log("----- 함수 밖에서 호출 -----")
     console.log(carName);
-    console.log(carSize);
+    // console.log(carSize);
 
     function funcLocal2() {
       var value1 = "value1";
 
       if (true) {
         var value2 = "value2";
-        let value3 = "value3";
+        let value3 = "value3"; // 코드 블럭 기준
       }
 
       console.log(value1);
       console.log(value2);
-      console.log(value3);
+      // console.log(value3);
     }
 
     funcLocal2();
+
+    </script>
+  <script>
+    console.log("\n---------------\n")
+
+    var text1 = "함수 선언 전 호출"
+    var text1 = "함수 선언 후 호출"
+
+    printMsg(text1);
+
+    function printMsg(msg) {
+      console.log
+    }
+    function add(name, n) {
+      console.log(name + " 학생이 1부터 " + n + "까지 덧셈 수행");
+      var sum = 0;
+      for(var i=1; i <= n; i++) {
+        sum+= i;
+      }
+      return sum;
+    }
+    result = add('홍길동', 10)
+    console.log("결과 : " + result);
+    result = add('이영희', 100)
+    console.log("결과 : " + result);
+    
   </script>
   <title>Document</title>
 </head>
