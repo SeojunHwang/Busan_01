@@ -26,14 +26,14 @@
     }
   </style>
 
-  <title>게시판 목록</title>
+  <title>자유게시판</title>
 </head>
 
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">게시판</a>
+      <a class="navbar-brand" href="Board_List.html">게시판</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -41,18 +41,18 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">목록</a>
+            <a class="nav-link active" aria-current="page" href="Board_List.html">목록</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">글쓰기</a>
+            <a class="nav-link" href="Writing.html">글쓰기</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">이미지 게시판으로</a>
+            <a class="nav-link" href="Image_Board.html">이미지게시판으로</a>
           </li>
         </ul>
         <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="게시글 찾기" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">검색</button>
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
     </div>
@@ -61,7 +61,7 @@
   <!-- Title -->
   <div class="container">
     <br />
-    <h1 class="text-center"><a href="#">자유게시판</a></h1>
+    <h1 class="text-center"><a href="Board_List.html">자유게시판</a></h1>
     <br />
   </div>
 
@@ -79,56 +79,56 @@
       <tbody>
         <tr>
           <td>1</td>
-          <td>Title_1</td>
-          <td>Cha4ser</td>
+          <td><a href="Board_contents.html">Title_1</a></td>
+          <td>작성자</td>
           <td>1</td>
         </tr>
         <tr>
           <td>2</td>
-          <td>Title_2</td>
-          <td>Cha4ser</td>
+          <td><a href="#">Title_2</a></td>
+          <td>작성자</td>
           <td>10</td>
         </tr>
         <tr>
           <td>3</td>
-          <td>Title_3</td>
-          <td>Cha4ser</td>
+          <td><a href="#">Title_3</a></td>
+          <td>작성자</td>
           <td>12</td>
         </tr>
         <tr>
           <td>4</td>
-          <td>Title_4</td>
-          <td>Cha4ser</td>
+          <td><a href="#">Title_4</a></td>
+          <td>작성자</td>
           <td>1</td>
         </tr>
         <tr>
           <td>3</td>
-          <td>Title_5</td>
-          <td>Cha4ser</td>
+          <td><a href="#">Title_5</a></td>
+          <td>작성자</td>
           <td>3</td>
         </tr>
         <tr>
           <td>3</td>
-          <td>Title_6</td>
-          <td>Cha4ser</td>
+          <td><a href="#">Title_6</a></td>
+          <td>작성자</td>
           <td>24</td>
         </tr>
         <tr>
           <td>3</td>
-          <td>Title_7</td>
-          <td>Cha4ser</td>
+          <td><a href="#">Title_7</a></td>
+          <td>작성자</td>
           <td>48</td>
         </tr>
         <tr>
           <td>3</td>
-          <td>Title_8</td>
-          <td>Cha4ser</td>
+          <td><a href="#">Title_8</a></td>
+          <td>작성자</td>
           <td>37</td>
         </tr>
         <tr>
           <td>3</td>
-          <td>Title_9</td>
-          <td>Cha4ser</td>
+          <td><a href="#">Title_9</a></td>
+          <td>작성자</td>
           <td>5</td>
         </tr>
       </tbody>
@@ -150,8 +150,10 @@
 
   <!-- button -->
   <div class="container">
-    <a class="btn btn-outline-info float-right" href="#">글쓰기</a>
+    <a class="btn btn-outline-info float-right" href="Writing.html">글쓰기</a>
   </div>
+
+  <div style="padding: 30px;"></div>
 
   <!-- Footer -->
   <footer class="py-5 bg-dark">

@@ -26,14 +26,14 @@
     }
   </style>
 
-  <title>글작성</title>
+  <title>이미지 업로드</title>
 </head>
 
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="Board_List.html">게시판</a>
+      <a class="navbar-brand" href="Image_Board.html">이미지게시판</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -41,13 +41,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="Board_List.html">목록</a>
+            <a class="nav-link active" aria-current="page" href="Image_Board.html">목록</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Writing.html">글쓰기</a>
+            <a class="nav-link" href="Image_writing.html">글쓰기</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Image_Board.html">이미지게시판으로</a>
+            <a class="nav-link" href="Board_List.html">자유게시판으로</a>
           </li>
         </ul>
         <form class="d-flex">
@@ -61,21 +61,49 @@
   <!-- Title -->
   <div class="container">
     <br />
-    <h1 class="text-center"><a href="Writing.html">게시판 글쓰기</a></h1>
+    <h1 class="text-center"><a href="Image_writing.html">이미지 업로드</a></h1>
     <br />
   </div>
 
-  <!-- Borard List -->
+  <!-- Image writing -->
   <div class="container">
-    <form action="writerAction" method="post">
-      <input type="text" name="bdTitle" class="form-control mt-4 mb-2" placeholder="제목을 입력해주세요." required>
-      <div class="form-group">
-        <textarea class="form-control" rows="10" name="bdContent" placeholder="내용을 입력해주세요" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-secondary mb-3">글등록</button>
-      <button type="submit" class="btn btn-secondary mb-3">다시입력</button>
-      <button type="submit" class="btn btn-secondary mb-3">작성취소</button>
-    </form>
+    <center>
+      <table cellpadding="2" id="bbs" style="text-align: center;">
+        <tr>
+          <td id="bbs_title" colspan="3">
+            이미지 등록
+          </td>
+        </tr>
+        <tr>
+          <td height="1" colspan="3" style="border-bottom:1px solid #DBDBDB;"></td>
+        </tr>
+        <tr>
+          <td align="center" width="100">제&nbsp;&nbsp;&nbsp;&nbsp;목</td>
+          <td colspan="2">
+            <input type="text" name="subject" class="boxTF" size="74" />
+          </td>
+        </tr>
+        <tr>
+          <td height="1" colspan="3" style="border-bottom:1px solid #DBDBDB;"></td>
+        </tr>
+        <tr>
+          <td align="center">파&nbsp;&nbsp;&nbsp;&nbsp;일</td>
+          <td class="bbsCreated_bottomLine" colspan="2">
+            <input type="file" name="uploadFile" class="boxTF" size="74" />
+          </td>
+        </tr>
+        <tr>
+          <td height="1" colspan="3" style="border-bottom:1px solid #DBDBDB;"></td>
+        </tr>
+        <tr id="bbsCreated_footer">
+          <td colspan="3" align="center">
+            <button type="submit" class="btn btn-secondary mb-3">글등록</button>
+            <button type="submit" class="btn btn-secondary mb-3">다시입력</button>
+            <button type="submit" class="btn btn-secondary mb-3">작성취소</button>
+          </td>
+        </tr>
+      </table>
+    </center>
   </div>
 
   <div style="padding: 30px;"></div>
@@ -86,7 +114,6 @@
       <p class="m-0 text-center text-white">Copyright &copy; Codevang
         2020</p>
     </div>
-    <!-- /.container -->
   </footer>
 
   <!-- Optional JavaScript; choose one of the two! -->

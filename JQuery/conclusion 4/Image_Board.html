@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 
 <head>
   <!-- Required meta tags -->
@@ -10,14 +10,119 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-  <title>이미지 게시판</title>
+  <style>
+    a {
+      text-decoration: none
+    }
+
+    a:link {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: black;
+      text-decoration: none;
+    }
+
+    /* 갤러리 */
+    .sub_photo li {
+      float: left;
+      position: relative;
+      width: 160px;
+      margin-right: 8px;
+      margin-bottom: 30px;
+      display: block;
+    }
+
+    .sub_photo li a strong {
+      display: block;
+      overflow: hidden;
+      padding-right: 8px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 14px;
+    }
+
+    .sub_photo li img {
+      width: 160px;
+      height: 120px;
+    }
+
+    .sub_photo p.thmb {
+      margin-bottom: 3px
+    }
+
+    .sub_photo .tx_brief {
+      margin-top: 2px;
+      padding-right: 13px
+    }
+
+    .sub_photo .tx_brief a {
+      color: #666
+    }
+
+    /* 각게시판 페이징 */
+    .paginate {
+      padding: 16px 0 0;
+      text-align: center;
+    }
+
+    .paginate a,
+    .paginate strong {
+      display: inline-block;
+      position: relative;
+      width: 17px;
+      margin-right: 1px;
+      padding: 2px 4px 3px;
+      border: 1px solid #f5f2ed;
+      color: #666;
+      font-family: Verdana;
+      font-size: 11px;
+      font-weight: bold;
+      line-height: normal;
+      text-decoration: none
+    }
+
+    .paginate strong {
+      border: 1px solid #928070;
+      color: #f52d2d !important
+    }
+
+    .paginate .pre,
+    .paginate .next {
+      display: inline-block;
+      position: relative;
+      top: 0;
+      top: -2px;
+      width: 75px;
+      border: 1px solid #b4b4b4;
+      color: #ccc;
+      font-family: '돋움', Dotum;
+      font-size: 11px;
+      line-height: normal
+    }
+
+    .paginate a.pre,
+    .paginate a.next {
+      color: #565656
+    }
+
+    .paginate a:hover {
+      border: 1px solid #e9e9e9;
+      color: #FFF;
+      background-color: #939393 !important
+    }
+  </style>
+
+  <title>이미지게시판</title>
 </head>
 
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="Image_Board.html">이미지게시판</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,27 +130,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="Image_Board.html">목록</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
+            <a class="nav-link" href="Image_writing.html">글쓰기</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <a class="nav-link" href="Board_List.html">자유게시판으로</a>
           </li>
         </ul>
         <form class="d-flex">
@@ -59,21 +150,149 @@
   <!-- Title -->
   <div class="container">
     <br />
-    <h1 class="text-center"><a href="#">이미지 게시판</a></h1>
+    <h1 class="text-center"><a href="Image_Board.html">이미지게시판</a></h1>
     <br />
   </div>
 
-  <!-- Board List -->
-  <table widht="600" align="center" style="font-size: 10pt;" cellspacing="2" cellpadding="1">
-    <tr id="bbsList">
-      <td align="right" colspan="1" width="200">
-        <input type="button" value="게시물등록">
-      </td>
-    </tr>
-    <tr>
-      <td style="border-bottom: 2px solid #DBDBDB;" colspan="3"></td>
-    </tr>
-  </table>
+  <!-- Image list -->
+  <div class="container">
+    <div class="sub_photo">
+      <ul>
+        <li>
+          <p class="thmb">
+            <a href="#">
+              <img src="ROG_Strix_wallpaper_FHD.jpg" alt="">
+            </a>
+          </p>
+          <a href="#"><strong>제목부분</strong></a>
+          <p class="tx_brief">2021-04-21</p>
+        </li>
+        <li>
+          <p class="thmb">
+            <a href="#">
+              <img src="ROG_Strix_wallpaper_FHD.jpg" alt="">
+            </a>
+          </p>
+          <a href="#"><strong>제목부분</strong></a>
+          <p class="tx_brief">2021-04-21</p>
+        </li>
+        <li>
+          <p class="thmb">
+            <a href="#">
+              <img src="ROG_Strix_wallpaper_FHD.jpg" alt="">
+            </a>
+          </p>
+          <a href="#"><strong>제목부분</strong></a>
+          <p class="tx_brief">2021-04-21</p>
+        </li>
+        <li>
+          <p class="thmb">
+            <a href="#">
+              <img src="ROG_Strix_wallpaper_FHD.jpg" alt="">
+            </a>
+          </p>
+          <a href="#"><strong>제목부분</strong></a>
+          <p class="tx_brief">2021-04-21</p>
+        </li>
+        <li>
+          <p class="thmb">
+            <a href="#">
+              <img src="ROG_Strix_wallpaper_FHD.jpg" alt="">
+            </a>
+          </p>
+          <a href="#"><strong>제목부분</strong></a>
+          <p class="tx_brief">2021-04-21</p>
+        </li>
+        <li>
+          <p class="thmb">
+            <a href="#">
+              <img src="ROG_Strix_wallpaper_FHD.jpg" alt="">
+            </a>
+          </p>
+          <a href="#"><strong>제목부분</strong></a>
+          <p class="tx_brief">2021-04-21</p>
+        </li>
+        <li>
+          <p class="thmb">
+            <a href="#">
+              <img src="ROG_Strix_wallpaper_FHD.jpg" alt="">
+            </a>
+          </p>
+          <a href="#"><strong>제목부분</strong></a>
+          <p class="tx_brief">2021-04-21</p>
+        </li>
+        <li>
+          <p class="thmb">
+            <a href="#">
+              <img src="ROG_Strix_wallpaper_FHD.jpg" alt="">
+            </a>
+          </p>
+          <a href="#"><strong>제목부분</strong></a>
+          <p class="tx_brief">2021-04-21</p>
+        </li>
+        <li>
+          <p class="thmb">
+            <a href="#">
+              <img src="ROG_Strix_wallpaper_FHD.jpg" alt="">
+            </a>
+          </p>
+          <a href="#"><strong>제목부분</strong></a>
+          <p class="tx_brief">2021-04-21</p>
+        </li>
+        <li>
+          <p class="thmb">
+            <a href="#">
+              <img src="ROG_Strix_wallpaper_FHD.jpg" alt="">
+            </a>
+          </p>
+          <a href="#"><strong>제목부분</strong></a>
+          <p class="tx_brief">2021-04-21</p>
+        </li>
+        <li>
+          <p class="thmb">
+            <a href="#">
+              <img src="ROG_Strix_wallpaper_FHD.jpg" alt="">
+            </a>
+          </p>
+          <a href="#"><strong>제목부분</strong></a>
+          <p class="tx_brief">2021-04-21</p>
+        </li>
+        <li>
+          <p class="thmb">
+            <a href="#">
+              <img src="ROG_Strix_wallpaper_FHD.jpg" alt="">
+            </a>
+          </p>
+          <a href="#"><strong>제목부분</strong></a>
+          <p class="tx_brief">2021-04-21</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="padding: 300px;"></div>
+
+  <!-- Page -->
+  <div class="container">
+    <ul class="pagination justify-content-center">
+      <li><a href="#" style="margin-right: 5px;" class="text-secondary">▶</a></li>
+      <li><a href="#" style="margin-right: 5px;" class="text-secondary">1</a></li>
+      <li><a href="#" style="margin-right: 5px;" class="text-secondary">2</a></li>
+      <li><a href="#" style="margin-right: 5px;" class="text-secondary">3</a></li>
+      <li><a href="#" style="margin-right: 5px;" class="text-secondary">4</a></li>
+      <li><a href="#" style="margin-right: 5px;" class="text-secondary">5</a></li>
+      <li><a href="#" style="margin-right: 5px;" class="text-secondary">◀</a></li>
+    </ul>
+  </div>
+
+  <div style="padding: 30px;"></div>
+
+  <!-- button -->
+  <div class="container">
+    <a class="btn btn-outline-info float-right" href="Image_writing.html">글쓰기</a>
+  </div>
+
+  <div style="padding: 30px;"></div>
 
   <!-- Footer -->
   <footer class="py-5 bg-dark">
@@ -81,7 +300,6 @@
       <p class="m-0 text-center text-white">Copyright &copy; Codevang
         2020</p>
     </div>
-    <!-- /.container -->
   </footer>
 
   <!-- Optional JavaScript; choose one of the two! -->
