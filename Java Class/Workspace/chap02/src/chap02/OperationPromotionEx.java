@@ -17,14 +17,16 @@ public class OperationPromotionEx {
 		
 		char charValue1 = 'A';
 		char charValue2 = 1;
-//		char vahrValue3 = charValue1 + charValue2;
+//		자바의 정수 기본 데이터 타입이 int 타입이므로 byte, charm short 타입의 변수끼리 연산을 하면 자동으로 int 타입으로 형변환이 발생함
+//		char vahrValue3 = charValue1 + charValue2; // int 타입의 결과값으로 변경됨
 		int intValue2 = charValue1 + charValue2;
 		System.out.println("유니코드 = " + intValue2);
 		System.out.println("출력문자 = " + (char)intValue2);
 		
+//		정수형 데이터와 실수형 데이터를 연산하면 더 큰 데이터 타입인 실수형 데이터 타입으로 자동 형변환이 발새하고 데이터 연산이 이루어짐
 		int intValue5 = 10;
-//		int intValue4 = 10 / 4.0;
-		double doubleValue = intValue5 / 4.0;
+//		int intValue4 = 10 / 4.0; // 10 -> 10.0 으로 자동 형변환 후 데이터 연산을 진행함
+		double doubleValue = intValue5 / 4.0; // 실수 타입의 데이터는 정수 타입의 변수에 저장할 수 없으므로 실수형 타입의 기본 데이터 타입인 double 타입의 변수에 저장
 		System.out.println(doubleValue);
 	}
 
