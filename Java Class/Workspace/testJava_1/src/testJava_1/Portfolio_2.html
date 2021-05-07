@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+    function scoreTotal(html, css, javascript, java, spring) {
+      var total = html + css + javascript + java + spring;
+      return total;
+    }
+
+    function scoreAvg(total) {
+      var avg = total / 5
+      return avg;
+    }
+
+    function scoreLevel(avg) {
+      var level;
+
+      if (avg > 90) {
+        level = "A";
+      } else if (avg > 80) {
+        level = "B";
+      } else if (avg > 70) {
+        level = "C";
+      } else if (avg > 60) {
+        level = "D";
+      } else if (avg > 50) {
+        level = "F";
+      }
+      console.log("당신의 총점은 " + totalScore + " 점이며," + " 평균점수는 " + avgScore + " 이고," + " 등급은 " + level + "입니다.");
+    };
+
+    var htmlScore = prompt("html점수를 입력해 주세요 : ");
+    var cssScore = prompt("css점수를 입력해 주세요 : ");
+    var javascriptScore = prompt("javascript점수를 입력해 주세요 : ");
+    var javaScore = prompt("java점수를 입력해 주세요 : ");
+    var springScore = prompt("spring점수를 입력해 주세요 : ");
+
+    htmlScore = Number(htmlScore);
+    cssScore = Number(cssScore);
+    javascriptScore = Number(javascriptScore);
+    javaScore = Number(javaScore);
+    springScore = Number(springScore);
+
+    var totalScore = scoreTotal(htmlScore, cssScore, javascriptScore, javaScore, springScore);
+    var avgScore = scoreAvg(totalScore);
+
+    scoreLevel(avgScore);
+  </script>
+
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
