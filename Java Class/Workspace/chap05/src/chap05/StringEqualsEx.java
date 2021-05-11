@@ -1,4 +1,4 @@
-package java_chap05;
+package chap05;
 
 public class StringEqualsEx {
 

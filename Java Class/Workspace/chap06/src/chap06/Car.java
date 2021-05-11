@@ -1,4 +1,4 @@
-package java_chap06;
+package chap06;
 
 // Car 라는 클래스를 생성
 public class Car {
