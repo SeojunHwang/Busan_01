@@ -1,6 +1,6 @@
 package testJavaProject;
 
-public class TestJava {
+public class testJava {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
