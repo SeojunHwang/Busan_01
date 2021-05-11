@@ -43,7 +43,7 @@ public class ArrayCopyEx {
 		numbers3[0] = 100;
 		numbers4[4] = 5000;
 		
-		
+//		배열 numbers3이 가지고 있는 주소와 numbers4가 가지고 있는 주소가 동일하기 때문에 numbers3의 요소를 변경하거나 numbers4의 요소를 변경하면 서로 영향을 준다.
 		for (int i = 0; i < numbers3.length; i++) {
 			System.out.println("numbers3[" + i + "] : " + numbers3[i]);
 		}
