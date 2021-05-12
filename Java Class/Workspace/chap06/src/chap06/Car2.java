@@ -1,4 +1,4 @@
-package java_chap06;
+package chap06;
 
 public class Car2 {
 //	클래스의 멤버인 필드

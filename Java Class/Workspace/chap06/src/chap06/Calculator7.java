@@ -1,4 +1,4 @@
-package java_chap06;
+package chap06;
 
 public class Calculator7 {
 	static double pi = 3.14159;

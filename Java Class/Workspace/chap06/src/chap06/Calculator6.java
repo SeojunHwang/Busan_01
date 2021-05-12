@@ -1,4 +1,4 @@
-package java_chap06;
+package chap06;
 
 public class Calculator6 {
 //	정사각형의 넓이 출력

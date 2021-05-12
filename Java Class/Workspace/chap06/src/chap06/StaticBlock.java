@@ -1,4 +1,4 @@
-package java_chap06;
+package chap06;
 
 public class StaticBlock {
 //	인스턴스 필드

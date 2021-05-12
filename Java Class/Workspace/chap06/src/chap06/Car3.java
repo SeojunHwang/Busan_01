@@ -1,4 +1,4 @@
-package java_chap06;
+package chap06;
 
 public class Car3 {
 //	클래스의 필드

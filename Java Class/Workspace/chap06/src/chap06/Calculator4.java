@@ -1,4 +1,4 @@
-package java_chap06;
+package chap06;
 
 public class Calculator4 {
 	int x;
