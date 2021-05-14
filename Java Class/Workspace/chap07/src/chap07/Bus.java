@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 // Vehicle 클래스를 상속받은 Bus 클래스
 public class Bus extends Vehicle {

@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 public class Computer extends Calculator {
 //	어노테이션 : 컴파일러에게 추가 확인을 위해서 지시하기 위한 명령어

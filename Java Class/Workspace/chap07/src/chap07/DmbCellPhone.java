@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 // DmbCellPhone 클래스가 CellPhone 클래스를 상속받음
 // CellPhone의 필드인 model, color와 메서드인 powerOn, powerOff, hangUp, sendVoice, receiveVoice, bell 를 상속받음

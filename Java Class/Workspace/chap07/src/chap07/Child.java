@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 public class Child extends Parent {
 //	부모 클래스에서 상속받은 메서드와 접근제한자, 반환타입, 매개변수까지 동일하게 입력하고 메서드의 내부 실행코드만 변경하는 것을 오버라이드라고 함

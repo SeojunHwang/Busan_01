@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 // Child3클래스는 Parent3 클래스를 상속받음
 // method1, method2 메서드를 상속받음

@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 // 부모 클래스인 Parent4에 final이 사용되었기 때문에 상속이 불가능함
 // Parent4의 기능을 사용하고자 할 경우 Child4 클래스에서 Parent4의 메서드를 직접 구현해야 함

@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 // class 키워드 앞에 abstract 키워드가 들어가면 추상클래스가 됨
 // 추상 클래스는 객체화할 수 없음

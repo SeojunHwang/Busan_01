@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 public class KumhoTire extends Tire {
 	public KumhoTire(String location, int maxRotation) {

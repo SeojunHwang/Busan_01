@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 public class SupersonicAirplane extends Airplane {
 	public static final int NORMAL = 1; // 상수 / 객체 생성없이 클래스명으로 접근 가능

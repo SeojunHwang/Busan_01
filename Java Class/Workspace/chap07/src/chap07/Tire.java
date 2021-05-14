@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 public class Tire {
 	public int maxRotation; // 최대 수명

@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 public class CellPhone {
 //	부모의 인스턴스 멤버

@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 // Parent5 클래스를 상속받은 Child5 클래스
 public class Child5 extends Parent5 {

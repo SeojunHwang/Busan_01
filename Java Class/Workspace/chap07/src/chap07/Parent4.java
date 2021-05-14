@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 // 클래스 Parent4에 final 키워드를 사용
 // 해당 클래스는 더이상 상속할 수 없는 클래스가 됨

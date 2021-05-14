@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 public class SmartPhone extends Phone {
 	public SmartPhone(String owner) {

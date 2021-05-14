@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 // 필드 : 이름, 휴대폰번호
 // 메서드 : outputPhoneNumber

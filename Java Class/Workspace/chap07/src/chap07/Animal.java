@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 // 추상 클래스 Animal
 public abstract class Animal {

@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 // 필드 : 이름, 휴대폰 번호, 이메일주소, sns
 // 메서드 : outputAllInfo, outputEmail, outputSns, outputPhoneNumber

@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 public class Games {
 	public void play(Character ch) {

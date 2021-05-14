@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 public class Character {
 //	게임의 케릭터가 할 수 있는 행동 목록을 규격화 하여 지정함

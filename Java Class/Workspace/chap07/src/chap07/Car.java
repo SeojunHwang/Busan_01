@@ -1,4 +1,4 @@
-package java_chap07;
+package chap07;
 
 public class Car {
 //	Tire 클래스로 앞뒤좌우 4개의 Tire 객체 생성
