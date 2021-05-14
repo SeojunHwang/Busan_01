@@ -1,4 +1,4 @@
-package java_chap06;
+package chap06;
 
 public class Earth {
 //	final 필드에 값 대입하는 방법

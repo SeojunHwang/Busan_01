@@ -1,4 +1,4 @@
-package java_chap06;
+package chap06;
 
 public class Person {
 //	final 키워드는 해당 필드를 더이상 수정이 불가능하도록 지정함
