@@ -1,4 +1,4 @@
-package java_chap10;
+package chap10;
 
 // 컴파일 오류를 체크하는 사용자 예외를 생성하려면 Exception 을 상속받고
 // 런타임 오류를 체크하는 사용자 예외를 생성하려면 RuntimeException 을 상속받아야 함

@@ -1,4 +1,4 @@
-package java_chap10;
+package chap10;
 
 public class ArrayIndexoutOfBoundsExceptionEx {
 

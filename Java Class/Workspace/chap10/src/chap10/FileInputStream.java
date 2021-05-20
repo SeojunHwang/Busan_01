@@ -1,4 +1,4 @@
-package java_chap10;
+package chap10;
 
 public class FileInputStream implements AutoCloseable {
 	private String file;
