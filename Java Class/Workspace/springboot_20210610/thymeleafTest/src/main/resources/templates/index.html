@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- thymeleaf : java 라이브러리, 웹 및 독립된 환경 모두를 위한 템플릿 엔진 -->
+<!-- html5, xml, text, javascript, css 등을 지원 -->
+
+	<h1>index.html</h1>
+	
+<!-- thymeleaf 문법 -->
+<!-- 변수 사용 -->
+<!-- controller 에서 View 로 넘겨 준 데이터를 말함 -->
+<!-- ${변수명} : 해당 변수의 데이터를 가져옴 -->
+<!-- ex) ${data} -->
+<!-- ex) ${data.width} -->
+	<h2 th:text="${name}"></h2>
+	<h2 th:text="${job}"></h2>
+	<h2 th:text="${data}"></h2>
+	<h2 th:text="${data.seq}"></h2>
+	<h2 th:text="${data.userId}"></h2>
+	<h2 th:text="${data.userName}"></h2>
+	<h2 th:text="${data.email}"></h2>
+	<h2 th:text="${data.phone}"></h2>
+	<h2 th:text="${data.gender}"></h2>
+	<h2 th:text="${data.createDt}"></h2>
+
+<!-- *{변수명} : 선택적 변수 사용, controller에서 넘겨받은 데이터가 object, arrayList, 배열과 같은 자료형일 경우 해당 변수명을 제외하고 내부 요소의 이름만 사용하는 방식 -->
+<!-- th:object 를 사용했을 경우 해당 태그의 자식태그에서 변수명을 제외하고 요소명만 사용하여 데이터를 출력할 수 있음 -->
+<!-- th:object를 사용하지 않았을 경우 ${} 형태과 사용 방법이 동일함 -->
+<!-- ex) *{width} -->
+	<div th:object="${data}">
+		<h2 th:text="*{seq}"></h2>
+		<h2 th:text="*{userId}"></h2>
+		<h2 th:text="*{userName}"></h2>
+		<h2 th:text="*{email}"></h2>
+		<h2 th:text="*{phone}"></h2>
+		<h2 th:text="*{gender}"></h2>
+		<h2 th:text="*{createDt}"></h2>
+	</div>
+	
+<!-- @{경로명} : 다양한 URL을 표현할 경우 사용 -->
+<!-- ex) <script src="@{/js/jquery-3.6.0.js}"></script> -->
+	<!-- <img src="/images/pengsu001.jpg"> -->
+	<img src="/images/pengsu001.jpg">
+	<img th:src="@{/images/pengsu001.jpg}" >
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

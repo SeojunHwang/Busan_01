@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 위의 태그는 해당 파일이 xml 이라는 것을 나타내는 태그 -->
+<!-- 아래의 태그는 해당 파일이 mybatis 3.0 규격을 사용한다는 의미 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper 태그 : 실제 매핑하는 내용을 나타내는 태그 -->
+<!-- namespace : 지정한 java 파일과 연동, 전체 패키지명을 모두 입력해야 함 -->
+<mapper namespace="com.btc.board1.mapper.Board1Mapper">
+
+<!-- select : SQL문 중 SELECT 문을 실행하기 위한 태그 -->
+<!-- update : SQL문 중 UPDATE 문을 실행하기 위한 태그 -->
+<!-- insert : SQL문 중 INSERT 문을 실행하기 위한 태그 -->
+<!-- delete : SQL문 중 DELETE 문을 실행하기 위한 태그 -->
+
+	<!-- id 속성 : mapper 파일의 메서드와 연동하기 위한 속성, mapper 파일과 연동된 메서드를 구현한 것 -->
+	<!-- resultType 속성 : mapper 파일의 메서드와 연동된 반환값을 뜻함 -->
+	<select id="selectBoardList" resultType="com.btc.board1.dto.Board1Dto">
+		<![CDATA[
+			SELECT
+				board_idx,
+				title, hit_cnt,
+				DATE_FORMAT(created_date, '%Y.%m.%d %H:%i:%s') AS created_date
+			FROM
+				t_board
+			WHERE
+				deleted_yn = 'N'
+			ORDER BY
+				board_idx DESC
+		]]>
+	</select>
+	
+	<!-- Board1Mapper 인터페이스의 insertBoard 메서드를 구현 -->
+	<!-- parameterType - 자바에서의 메서드 매개변수 라고 생각하면 됨 -->
+	<insert id="insertBoard" parameterType="com.btc.board1.dto.Board1Dto">
+		<![CDATA[ 
+			INSERT INTO
+				t_board
+				(title, contents, created_date, creator_id)
+			VALUES
+				(#{title}, #{contents}, NOW(), 'tester1')
+		]]>
+	</insert>
+	
+	<!-- parameterType에 자바의 기본 타입을 사용할 경우 전체 패키지명을 입력할 필요 없음 -->
+	<select id="selectBoardDetail" parameterType="int" resultType="com.btc.board1.dto.Board1Dto">
+		<![CDATA[
+			SELECT
+				board_idx, title, contents, hit_cnt,
+				DATE_FORMAT(created_date, '%Y.%m.%d %H:%i:%s') AS created_date, creator_id
+			FROM
+				t_board
+			WHERE
+				board_idx = #{boardIdx}
+			AND
+				deleted_yn = 'N'
+		]]>
+	</select>
+	
+	<update id="updateBoard" parameterType="com.btc.board1.dto.Board1Dto">
+		<![CDATA[ 
+			UPDATE
+				t_board
+			SET
+				title=#{title},
+				contents=#{contents},
+				updated_date=NOW(),
+				updater_id='tester1'
+			WHERE
+				board_idx=#{boardIdx}
+		]]>
+	</update>
+	
+	<!-- 게시물 삭제, delete 사용 -->
+	<!--<delete id="deleteBoard" parameterType="int">
+		<![CDATA[ 
+			DELETE FROM
+				t_board
+			WHERE
+				board_idx=#{boardIdx}
+		]]>
+	</delete>-->
+	
+	<update id="deleteBoard" parameterType="int">
+		<![CDATA[
+			UPDATE
+				t_board
+			SET
+				deleted_yn = 'Y'
+			WHERE
+				board_idx=${boardIdx}
+		]]>
+	</update>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
