@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+	<!-- th:include="html파일명 :: fragment 명" -->
+	<!-- 해당 파일의 fragment 를 찾아서 해당 위치에 추가함 -->
+	
+	<!-- fragment를 가져오는데 include 와 replace가 존재함 -->
+	<!-- include 는 현재 태그에 fragment에 지정한 태그를 붙여넣는 방식 -->
+	<!-- replace 는 현재 태그를 fragment에 지정된 태그로 변경하는 방식 -->
+	<header class="container" th:include="header :: header">
+	</header>
+	
+	<main class="container">
+		<h1>thymeleaf의 include를 사용한 main contents 영역</h1>
+	</main>
+	
+	<footer class="jumbotron" th:include="footer :: footer">
+		<!-- include 는 fragment의 내용을 추가하는 것 -->
+	</footer>
+	
+	<footer class="jumbotron" th:replace="footer :: footer2">
+		<!-- replace는 fragment의 내용으로 변경하는 것 -->
+	</footer>
+</body>
+</html>

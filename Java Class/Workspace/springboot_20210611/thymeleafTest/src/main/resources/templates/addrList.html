@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+	<div class="container">
+		<table class="table table-hover table-striped">
+			<thead>
+				<tr>
+					<th>순번</th>
+					<th>사용자 ID</th>
+					<th>사용자 이름</th>
+					<th>사용자 이메일</th>
+					<th>사용자 연락처</th>
+					<th>사용자 성별</th>
+					<th>사용자 등록일</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${#lists.size(dataList)} > 0" th:each="list : ${dataList}">
+					<td th:text="${list.seq}"></td>
+					<td th:text="${list.userId}"></td>
+					<td th:text="${list.userName}"></td>
+					<td th:text="${list.email}"></td>
+					<td th:text="${list.gender}"></td>
+					<td th:text="${list.createDt}"></td>
+				</tr>
+				<tr th:unless="${#lists.size(dataList)} > 0">
+					<td colspan="7" th:text="조회된 내용이 없습니다."></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
