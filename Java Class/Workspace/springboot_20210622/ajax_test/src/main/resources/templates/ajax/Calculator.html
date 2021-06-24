@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ajax를 사용한 사칙연산</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function() {
+			$("#btnSum").on("click", function() {
+				var jsNum1 = $("#num1").val();
+				var jsNum2 = $("#num2").val();
+				
+				if (jsNum1 == null || jsNum1 == undefined || jsNum1 == "") {
+					alert("입력된 데이터가 없습니다.");
+				}
+				else if (jsNum2 == null || jsNum2 == undefined || jsNum2 == "") {
+					alert("입력된 데이터가 없습니다.");
+				}
+				else if(isNaN(jsNum1) || isNaN(jsNum2)) {
+					alert("숫자로 입력해주세요");
+				}
+				else {
+					var datas = {num1: jsNum1, num2: jsNum2};
+					
+					$.ajax({
+						url: "/ajax/CalSum",
+						type: "post",
+						dataType: "json",
+						data: datas,
+						success: function(data) {
+							$("#result").text(data.result);
+						},
+						error: function() {
+							alert("ajax 통신 중 오류가 발생했습니다.");
+						}
+					});
+				}
+			});
+			
+			$("#btnSub").on("click", function() {
+				var jsNum1 = $("#num1").val();
+				var jsNum2 = $("#num2").val();
+				
+				$.ajax({
+					url: "/ajax/CalSub",
+					type: "POST",
+					dataType: "json",
+					data: {num1: jsNum1, num2: jsNum2},
+					success: function(data) {
+						$("#result").text(data.result);
+					},
+					error: function() {
+						alert("통신 중 에러가 발생했습니다.");
+					}
+				});
+			});
+			/* 문제 1) 사칙 연산 중 곱셈과 나눗셈 부분을 ajax 통신 부분과 스프링부트의 controller 를 추가하여 사칙 연산이 동작하도록 프로그램을 작성하세요 */
+			
+			$("#btnMulti").on("click", function() {
+				var jsNum1 = $("#num1").val();
+				var jsNum2 = $("#num2").val();
+				
+				$.ajax({
+					url: "/ajax/CalMulti",
+					type: "post",
+					dataType: "json",
+					data: {num1: jsNum1, num2: jsNum2},
+					success: function(data) {
+						$("#result").text(data.result);
+					},
+					error: function() {
+						alert("ajax 통신 중 오류가 발생했습니다.");
+					}
+				});
+			});
+			
+			$("#btnDiv").on("click", function() {
+				var jsNum1 = $("#num1").val();
+				var jsNum2 = $("#num2").val();
+				
+				$.ajax({
+					url: "/ajax/CalDiv",
+					type: "post",
+					dataType: "json",
+					data: {num1: jsNum1, num2: jsNum2},
+					success: function(data) {
+						$("#result").text(data.result);
+					},
+					error: function() {
+						alert("ajax 통신 중 오류가 발생했습니다.");
+					}
+				});
+			});
+			
+			/* 문제 2) 현재 input 태그에 아무런 값이 없을 경우 서버 오류가 발생한다.  해당 서버 오류가 발생하지 않도록 자바스크립트에서 input 태그의 값이 null이거나 숫자가 아닐경우 확인 메시지를 출력하는 프로그램을 작성하세요
+			// 숫자를 입력하지 않았을 경우 연산을 하지 않고 '숫자를 입력해주세요' 라는 알림 메시지를 출력
+			*/
+		});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 mx-auto">
+				<div class="form-group mb-3">
+					<label for="num1">첫번째 숫자 : </label>
+					<input type="text" id="num1" name="num1" class="form-control" placeholder="첫번째 숫자를 입력하세요">
+				</div>
+				
+				<div class="form-group mb-3">
+					<label for="num2">두번째 숫자 : </label>
+					<input type="text" id="num2" name="num2" class="form-control" placeholder="두번째 숫자를 입력하세요">
+				</div>
+				
+				<div class="d-flex mb-3">
+					<button id="btnSum" class="btn btn-primary flex-fill mx-2"> + </button>
+					<button id="btnSub" class="btn btn-success flex-fill mx-2"> - </button>
+					<button id="btnMulti" class="btn btn-info flex-fill mx-2"> * </button>
+					<button id="btnDiv" class="btn btn-danger flex-fill mx-2"> / </button>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-2">
+						<label style="font-size: 24px;">결과 : </label>
+					</div>
+					<div class="col-sm-10">
+						<h3 id="result">없음</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
