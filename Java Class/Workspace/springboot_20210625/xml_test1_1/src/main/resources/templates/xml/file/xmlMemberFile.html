@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>jaxb 라이브러리로 xml 파일 파싱</title>
+
+<link rel="stylesheet" href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+
+<script src="/js/jquery-3.6.0.js" th:src="@{/js/jquery-3.6.0.js}"></script>
+<script src="/js/popper.min.js" th:src="@{/js/popper.min.js}"></script>
+<script src="/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+
+</head>
+<body>
+	<h1>xml 파싱하기</h1>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 mx-auto">
+				<table class="table table-hover table-striped">
+					<colgroup>
+						<col width="10%" />
+						<col width="20%" />
+						<col width="20%" />
+						<col width="20%" />
+						<col width="20%" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">번호</th>
+							<th scope="col">ID</th>
+							<th scope="col">이름</th>
+							<th scope="col">성별</th>
+							<th scope="col">직업</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:if="${#lists.size(xmlDatas)} > 0" th:each="item : ${xmlDatas}">
+							<td th:text="${item.no}"></td>
+							<td th:text="${item.id}"></td>
+							<td th:text="${item.name}"></td>
+							<td th:text="${item.gender}"></td>
+							<td th:text="${item.job}"></td>
+						</tr>
+						<tr th:unless="${#lists.size(xmlDatas)} > 0">
+							<td th:text="데이터가 없습니다."></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
