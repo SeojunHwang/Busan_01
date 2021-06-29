@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>전국 약국 정보 조회</title>
+
+	<link rel="stylesheet" href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+	
+	<script src="/js/jquery-3.6.0.js" th:src="@{/js/jquery-3.6.0.js}"></script>
+	<script src="/js/popper.min.js" th:src="@{/js/popper.min.js}"></script>
+	<script src="/js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+	
+	<script>
+		$(document).ready(function() {
+			$("#btnSearch").on("click", function() {
+				var jsPageNo = $("#pageNo").val();
+				var jsNumOfRows = $("#numOfRows").val();
+				
+				$.ajax({
+					url: "/xml/web/pharmacyFullData",
+					type: "POST",
+					data: {pageNo : jsPageNo, numOfRows : jsNumOfRows},
+					success: function(data) {
+						$("#ajaxTable tbody").empty(); // 기존 테이블의 데이터 삭제
+						
+						for(var i = 0; i < data.length; i++) {
+							var result = "<tr>";
+							result += "<td>" + data[i].rnum + "</td>";
+							result += "<td>" + data[i].hpId + "</td>";
+							result += "<td>" + data[i].dutyName + "</td>";
+							result += "<td>" + data[i].dutyTel1 + "</td>";
+							result += "<td>" + data[i].dutyAddr + "/" + data[i].postCdn1 + data[i].postCdn2 + "</td>";
+							result += "<td>" + data[i].dutyTime1s + "</td>";
+							result += "<td>" + data[i].dutyTime1c + "</td>";
+							result += "</tr>";
+							
+							$("#ajaxTable tbody").append(result);
+						}
+					},
+					error: function() {
+						alert("데이터 통신 시 오류가 발생했습니다.");
+					}
+				});
+			});
+		});
+	</script>
+	
+</head>
+<body>
+	<header class="container">
+		<div class="jumbotron">
+			<h1 class="text-center">전국 약국 정보 조회 서비스</h1>
+		</div>
+	</header>
+	
+	<main class="container">
+		<div class="mb-3">
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">페이지</span>
+				</div>
+				<input type="number" class="form-control" id="pageNo" name="pageNo" min="1" value="1">
+				<div class="input-group-append">
+					<span class="input-group-text">한번에 표시할 수</span>
+				</div>
+				<input type="number" class="form-control" id="numOfRows" name="numOfRows" min="1" value="10">
+				<div class="input-group-append">
+					<button type="button" id="btnSearch" class="btn btn-success">검색</button>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<table class="table table-hover table-striped" id="ajaxTable">
+					<thead>
+						<tr>
+							<th>번호</th>
+							<th>약국ID</th>
+							<th>약국명</th>
+							<th>전화번호</th>
+							<th>약국주소</th>
+							<th>Open</th>
+							<th>Close</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</main>
+	
+	<footer class="jumbotron mb-0">
+		<div class="container">
+			<p class="text-center">made by btc</p>
+		</div>
+	</footer>
+</body>
+</html>
