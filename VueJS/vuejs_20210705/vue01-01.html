@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue.js 처음 사용해보기</title>
+
+    <script src="http://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <div id="app2">
+        {{ msg }}
+    </div>
+
+    <div id="app3">
+        {{ message }}
+        {{ msg }}
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue.js!!'
+            }
+        });
+
+        new Vue({
+            el: "#app2",
+            data: {
+                msg: "두번째 vue 인스턴스"
+            }
+        });
+    </script>
+</body>
+</html>

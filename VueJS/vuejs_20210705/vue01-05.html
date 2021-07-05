@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컴포넌트간 통신</title>
+
+    <script src="http://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <com1></com1>
+        <com2></com2>
+    </div>
+
+    <script>
+        
+        var cmp1 = {
+            template: "<div>첫번째 지역 컴포넌트 : {{cmp1Data}}</div>",
+            data: function() {
+                return {
+                    cmp1Data: 100
+                }
+            }
+        };
+
+        // 뷰 사용 시 다른 컴포넌트의 데이터에 직접 접근 불가
+        var cmp2 = {
+            template: "<div>두번째 지역 컴포넌트 : {{cmp2Data}}</div>",
+            data: function() {
+                return { 
+                    cmp2Data: cmp1.data.cmp1Data
+                }
+            }
+        };
+
+        new Vue({
+            el: "#app",
+            components: {
+                "com1" : cmp1,
+                "com2" : cmp2
+            }
+        });
+
+        // 일반 자바스크립트 사용 시 다른 객체의 데이터 가져오기
+        // var cmp3 = {data : function() {
+        //     return {cmp3Data : 300}
+        // }}
+        // var cmp4 = {data : {cmp4Data : cmp3.data()}}
+        // console.log("cmp4를 이용하여 cmp3의 값 출력 : " + cmp4.data.cmp4Data.cmp3Data);
+
+        var cmp3 = {data : {cmp3Data : 300}}
+        var cmp4 = {data : {cmp4Data : cmp3.data()}}
+
+        console.log("cmp4를 이용하여 cmp3의 값 출력 : " + cmp4.data.cmp4Data);
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 인스턴스 2개에 1개의 전역 컴포넌트 등록하기</title>
+
+    <script src="http://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app1">
+        <button>app1에 전역 컴포넌트 등록하기</button>
+        <global-component></global-component>
+    </div>
+    <hr>
+    <div id="app2">
+        <button>app2에 전역 컴포넌트 등록하기</button>
+        <global-component></global-component>
+    </div>
+
+    <script>
+        Vue.component("global-component", {
+            template: "<div>전역 컴포넌트 등록</div>"
+        });
+
+        new Vue({
+            el: "#app1"
+        });
+
+        new Vue({
+            el: "#app2"
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컴포넌트 유효 범위</title>
+
+    <script src="http://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app1">
+        <global></global>
+        <com1></com1>
+        <com2></com2>
+    </div>
+
+    <hr>
+
+    <div id="app2">
+        <global></global>
+        <com1></com1>
+        <com2></com2>
+    </div>
+    
+    <script>
+        // 전역 컴포넌트라서 두곳에서 모두 사용
+        Vue.component("global", {
+            template: "<div>전역 컴포넌트</div>"
+        });
+
+        // app1에서만 사용가능
+        var com1 = {
+            template: "<div>app1에 들어갈 템플릿</div>"
+        }
+
+        // app2에서만 사용가능
+        var com2 = {
+            template: "<div>app2에 들어갈 템플릿</div>"
+        }
+
+        new Vue({
+            el: "#app1",
+            components: {
+                // app1에 뷰 인스턴스의 컴포넌트로 com1만 등록하였기 때문에 com2는 app1의 유효범위를 벗어남
+                "com1": com1
+            }
+        });
+
+        new Vue({
+            el: "#app2",
+            components: {
+                "com2": com2
+            }
+        });
+    </script>
+</body>
+</html>
