@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue.js 3일차 quiz 2번</title>
+
+    <script src="http://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>네스티드 라우터 사용하기</h1>
+        <br>
+        <router-link to="main">Main 화면으로 이동</router-link>
+        <router-link to="login">login 화면으로 이동</router-link>
+        <hr>
+        <div style="border: 1px solid black; width: 500px; min-height: 200px;">
+            <router-view></router-view>
+        </div>
+    </div>
+    <script>
+        var main = {
+            template:
+            `
+            <div>
+                <h1>Main 화면 입니다.</h1>
+                <router-link to="mainview1">Main의 view1 화면으로 이동</router-link>
+                <router-link to="mainview2">Main의 view2 화면으로 이동</router-link>
+                <hr>
+                <router-view></router-view>
+            </div>
+            `
+        }
+
+        var login = {
+            template:
+            `
+            <div>
+                <h1>Login 화면 입니다.</h1>
+                <router-link to="loginview1">Login의 view1 화면으로 이동</router-link>
+                <router-link to="loginview2">Login의 view2 화면으로 이동</router-link>
+                <hr>
+                <router-view></router-view>
+            </div>
+            `
+        }
+
+        // 서브 화면 컴포넌트
+        var mainView1 = {
+            template: "<h2>Main의 view1 화면 입니다.</h2>"
+        }
+
+        var mainView2 = {
+            template: "<h2>Main의 view2 화면 입니다.</h2>"
+        }
+
+        var loginView1 = {
+            template: "<h2>Login의 view1 화면 입니다.</h2>"
+        }
+
+        var loginView2 = {
+            template: "<h2>Login의 view2 화면 입니다.</h2>"
+        }
+
+        var routes = [
+            {
+                path: "/main",
+                component: main,
+                // children 속성을 사용하여 하위 컴포넌트의 내용을 등록함
+                children: [
+                    {
+                        path: "/mainview1",
+                        component: mainView1
+                    },
+                    {
+                        path: "/mainview2",
+                        component: mainView2
+                    }
+                ]
+            },
+            {
+                path: "/login",
+                component: login,
+                children: [
+                    {
+                        path: "/loginview1",
+                        component: loginView1
+                    },
+                    {
+                        path: "/loginview2",
+                        component: loginView2
+                    }
+                ]
+            }
+        ];
+
+        var router = new VueRouter({
+            routes: routes
+        });
+
+        var app = new Vue({
+            router: router
+        }).$mount("#app");
+    </script>
+</body>
+</html>

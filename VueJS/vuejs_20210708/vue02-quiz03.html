@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="http://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3>문제3</h3>
+
+        <global-component></global-component>
+        <br>
+        <local-component></local-component>
+    </div>
+
+    <script>
+// 문제 3) 지역 컴포넌트와 전역 컴포넌트를 하나씩 생성하고 이벤트 버스를 사용해서 뷰 인스턴스로 데이터를 전송하는 프로그램을 작성하세요
+// *이벤트 버스의 이벤트명 : eventGlobal, eventLocal
+// *이벤트 버스명 : eventBus
+// *전역 컴포넌트명 : global-component
+// *지역 컴포넌트명 : local-component
+
+        // 데이터 전송을 위한 뷰 인스턴스를 생성 (이벤트 버스 생성)
+        var eventBus = new Vue();
+
+        // 전역 컴포넌트 등록
+        Vue.component("global-component",{
+            // 버튼 클릭 이벤트를 등록하고 이벤트 발생 시 컴포넌트 내에 있는 sendGlobalData 메서드를 실행
+            template: "<button v-on:click='sendGlobalData'>전역 데이터 전송</button>",
+            methods: {
+                // 컴포넌트의 메서드 영역에 sendGlobalData 메서드 등록
+                sendGlobalData: function() {
+                    // eventBus가 가지고 있는 이벤트 중 eventGlobal 이벤트를 동작 시킴
+                    // 이벤트 동작 시 매개변수로 데이터를 전송함
+                    eventBus.$emit("eventGlobal", "전역 컴포넌트에서 보낸 데이터");
+                }
+            },
+        });
+
+        // 변수 cmp에 지역 컴포넌트 내용 설정
+        var cmp = {
+            // 버튼 클릭 시 이벤트를 등록하고 이벤트 발생 시 컴포넌트 내에 있는 sendLocalData 메서드를 실행
+            template: "<button v-on:click='sendLocalData'>로컬 데이터 전송</button>",
+            methods: {
+                // 컴포넌트의 메서드 영역에 sendLocalData 메서드 등록
+                sendLocalData: function() {
+                    // eventBus가 가지고 있는 이벤트 중 eventLocal 이벤트를 동작 시킴
+                    // 이벤트 동작 시 매개변수로 데이터를 전송함
+                    eventBus.$emit("eventLocal", "로컬 컴포넌트에서 보낸 데이터")
+                }
+            }
+        }
+
+        // 뷰 인스턴스를 생성
+        new Vue({
+            // html 태그 중 id 값이 app인 태그에 뷰 인스턴스를 적용함
+            el: "#app",
+            // 뷰 인스턴스의 라이프 사이클 중 created 에서 eventBus의 이벤트를 등록시킴
+            created: function() {
+                // eventBus에 eventGlobal 이벤트를 등록함
+                eventBus.$on("eventGlobal", function(data) {
+                    // eventGlobal 이벤트 동작 시 전송받은 데이터를 화면에 출력
+                    console.log(data);
+                });
+                // eventBus에 eventLocal 이벤트를 등록함
+                eventBus.$on("eventLocal", function(data) {
+                    // eventLocal 이벤트 동작 시 전송받은 데이터를 화면에 출력
+                    console.log(data);
+                });
+            },
+            // 뷰 인스턴스에 지역 컴포넌트인 local-component를 등록하고 컴포넌트의 내용을 변수 cmp로 설정함
+            components: {
+                'local-component' : cmp
+            }
+        });
+    </script>
+</body>
+</html>

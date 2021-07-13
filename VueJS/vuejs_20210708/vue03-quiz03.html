@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네임드 뷰</title>
+
+    <script src="http://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>네임드 뷰 사용하기</h1>
+        <router-link to="main">main 화면으로 이동</router-link>
+        <router-link to="login">login 화면으로 이동</router-link>
+        <hr>
+        <router-view name="header"></router-view>
+        <router-view name="main"></router-view>
+        <router-view name="footer"></router-view>
+    </div>
+
+    <script>
+
+        var mainHeader = { template: "<h2>main의 header 영역입니다.</h2>" }
+        var mainMain = { template: "<h2>main의 main 영역입니다.</h2>" }
+        var mainFooter = { template: "<h2>main의 footer 영역입니다.</h2>" }
+
+        var loginHeader = { template: "<h2>login의 header 영역입니다.</h2>" }
+        var loginMain = { template: "<h2>login의 main 영역입니다.</h2>" }
+        var loginFooter = { template: "<h2>login의 footer 영역입니다.</h2>" }
+
+        var routes = [
+            {
+                path: "/main",
+                components: {
+                    main: mainMain,
+                    header: mainHeader,
+                    footer: mainFooter
+                }
+            },
+            {
+                path: "/login",
+                components: {
+                    main: loginMain,
+                    header: loginHeader,
+                    footer: loginFooter
+                }
+            }
+        ];
+
+        // 뷰 라우트 인스턴스 생성
+        var router = new VueRouter({
+            routes // 뷰 라우터 정보 등록
+        });
+
+        // 화면을 구성하는 뷰 인스턴스 생성
+        var app = new Vue({
+            router // 뷰 인스턴스에 뷰 라우터 등록
+        }).$mount("#app"); // html 태그에 뷰 인스턴스 등록
+    </script>
+</body>
+</html>

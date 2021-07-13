@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="http://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{ msg }}</p>
+        <p>{{ msg + "!!!" }}</p>
+        <p>{{ msg.split("").reverse().join("") }}</p>
+    </div>
+
+    <div id="app2">
+        <!-- 자바스크립트 선언문은 {{ }} 에 사용할 수 없음 -->
+        <!-- <p>{{ var a = 10 }}</p> -->
+        <!-- 자바스크립트 제어문은 {{ }} 에 사용할 수 없음 -->
+        <!-- <p>{{ if (true) { return 100 }}</p> -->
+        <!-- 아래와 같은 복잡한 연산은 인스턴스의 내부에서 처리하는 것이 좋음 -->
+        <p>{{ msg.split("").reverse().join("") }}</p>
+        <!-- 위의 내용을 뷰 인스턴스 내부에서 처리하고 결과값만 출력 -->
+        <p>{{ reverseMsg }}</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                msg: "hello vue.js!"
+            }
+        });
+
+        new Vue({
+            el: "#app2",
+            data: {
+                msg : "hello vue.js!"
+            },
+            // 데이터 속성을 자동으로 계산해주는 속성
+            // methods와 computed는 기본적으로 함수를 선언해서 사용하는 부분에 대해서는 동일하지만 내부적으로 methods는 해당 함수를 호출해서 사용해야만 연산을 시작하고, computed는 자동으로 연산을 수행한 후 메모리에 저장하고 있음
+            // 반복적인 연산이 필요한 함수는 computed에 선언하는 것이 좋음
+            computed: {
+                // 함수 선언
+                reverseMsg: function() {
+                    return this.msg.split("").reverse().join("");
+                }
+            }
+        })
+    </script>
+</body>
+</html>

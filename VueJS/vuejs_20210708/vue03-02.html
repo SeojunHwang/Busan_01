@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네스티드 라우터</title>
+
+    <script src="http://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+    <!-- 화면용 뷰 인스턴스를 적용한 div 태그 -->
+    <div id="app">
+        <!-- 뷰 라우터를 사용하여 라우팅된 화면을 표시할 영역 -->
+        <router-view></router-view>
+    </div>
+
+    <script>
+        var user = {
+            template: `
+            <div>
+                user component
+                <router-view></router-view>
+            </div>
+            `
+        };
+
+        var userProfile = {
+            template: "<p>User Profile Component</p>"
+        };
+
+        var userPost = {
+            template: "<p>User Post Component</p>"
+        };
+
+        var routes = [
+            {
+                path: "/user",
+                component: user,
+                children: [
+                    {
+                        path: "posts",
+                        component: userPost
+                    },
+                    {
+                        path: "profile",
+                        component: userProfile
+                    }
+                ]
+            }
+        ];
+
+        // 뷰 라우터를 생성
+        var router = new VueRouter({
+            routes: routes // 뷰 라우터의 내용을 등록
+        });
+
+        // 화면용 뷰 인스턴스 생성
+        var app = new Vue({
+            router: router // 뷰 인스턴스에 라우터를 등록
+        }).$mount("#app"); // mount명령어를 이용해서 id값이 app인 태그에 뷰 인스턴스를 적용
+    </script>
+</body>
+</html>

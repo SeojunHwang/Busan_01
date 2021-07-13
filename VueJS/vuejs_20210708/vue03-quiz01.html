@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue.js 3일차 퀴즈 1</title>
+
+    <script src="http://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>라우터를 사용하여 화면 전환하기</h1>
+        <router-link to="view1">view1 로 전환</router-link>
+        <router-link to="view2">view2 로 전환</router-link>
+        <router-link to="view3">view3 으로 전환</router-link>
+        <hr>
+        <router-view></router-view>
+    </div>
+
+    <script>
+        var view1 = { 
+            template: "<h1>View1 화면입니다.</h1>"
+        }
+
+        var view2 = {
+            template: "<h1>View2 화면입니다.</h2>"
+        }
+
+        var view3 = {
+            template: "<h1>View3 화면입니다.</h1>"
+        }
+
+        var routes = [
+            {
+                path: "/view1",
+                component: view1
+            },
+            {
+                path: "/view2",
+                component: view2
+            },
+            {
+                path: "/view3",
+                component: view3
+            }
+        ];
+
+        // 뷰 라우터 인스턴스 생성
+        var router = new VueRouter({
+            routes: routes // 라우터 정보를 routes 속성에 등록
+        });
+
+        // 화면에 출력하기 위한 뷰 인스턴스를 생성
+        new Vue({
+            router: router // 뷰의 라우터 속성에 뷰 라우터 인스턴스를 등록
+        }).$mount("#app"); // el 속성을 사용하여 태그에 적용하는 것과 동일한 효과
+    </script>
+</body>
+</html>

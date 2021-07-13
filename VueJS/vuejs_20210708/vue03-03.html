@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네임드 뷰</title>
+
+    <script src="http://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- router-view 태그를 여러개 사용 -->
+        <!-- name 속성을 사용하여 뷰 라우터에 등록된 컴포넌트와 연동 -->
+        <router-view name="header"></router-view>
+        <!-- 네임드 뷰 사용 시 name 속성의 값이 없으면 default로 인식함 -->
+        <router-view></router-view> 
+        <router-view name="footer"></router-view>
+    </div>
+
+    <script>
+        var header = { template: "<div>Header 영역</div>" }
+        var main = { template: "<div>Main 영역</div>" }
+        var footer = { template: "<div>Footer 영역</div>" }
+
+        // 뷰 라우터 인스턴스를 생성
+        var router = new VueRouter({
+            routes: [
+                {
+                    path: "/",
+                    components: {
+                        default: main,
+                        header: header,
+                        footer: footer
+                    }
+                }
+            ]
+        });
+
+        // 화면 출력을 위한 뷰 인스턴스 생성, 변수 app에 대입
+        var app = new Vue({
+            router // 뷰 인스턴스의 router속성에 뷰 라우터 인스턴스 등록
+        }).$mount("#app"); // mount 명령을 사용하여 html 태그에 뷰 인스턴스 적용
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <a href="" v-if="flag">다음 홈페이지</a>
+        <ul>
+            <li v-for="item in items">{{ item }}</li>
+        </ul>
+        <p v-show="flag">v-show 사용하기</p>
+        <h5 v-bind:id="vid">뷰 bind 사용하기</h5>
+        <button v-on:click="popupAlert">경고 창 출력하기</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                flag: false,
+                items: ['html5', 'css3', 'jquery', 'bootstrap', 'java', 'spring', 'vue.js'],
+                vid: "vueId"
+            },
+            methods: {
+                popupAlert: function() {
+                    return alert("경고창 표시");
+                }
+            },
+        });
+    </script>
+</body>
+</html>

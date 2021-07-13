@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios 라이브러리 사용하기</title>
+
+    <script src="http://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="getData">Axios로 데이터 가져오기</button>
+    </div>
+
+    <script>
+        new Vue({
+            methods: {
+                getData: function() {
+                    // axios 라이브러리를 사용하여 post 방식으로 서버에 ajax 통신 요청
+                    axios.post("http://localhost:8080/ajax/selectAxiosBoardList")
+                    // then() : 정상적으로 통신을 했을 경우 실행
+                    .then(function(response) {
+                        console.log("***** 정상 수신 *****");
+
+                        // response 는 서버에서 수신한 전체 데이터임
+                        // response.data 는 서버에서 수신한 전체 데이터 중 데이터에 관련된 항목만 존재함
+                        // response.data 의 데이터는 배열 형태로 되어 있음
+                        var items = response.data;
+
+                        for (var i = 0; i < items.length; i++) {
+                            console.log(items[i].boardIdx + " / " + items[i].title + " / " + items[i].hitCnt + " / " + items[i].createdDate);
+                        }
+                    })
+                    // catch() : 통신 시 오류가 발생했을 경우
+                    .catch(function(error) {
+                        console.log("***** 통신 오류 *****");
+                        console.log(error);
+                    });
+                }
+            },
+        }).$mount("#app");
+    </script>
+</body>
+</html>

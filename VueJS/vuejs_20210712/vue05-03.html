@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watch 사용하기</title>
+
+    <script src="http://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-model : 실시간을 뷰 인스턴스의 데이터와 화면단의 데이터를 연동시켜주는 디렉티브, 내부적으로 data영역의 변수값을 변경하면 화면의 출력된 데이터가 바로 변경되고, 화면에서 데이터를 변경하면 뷰 인스턴스에 연동된 data영역의 변수값이 바로 변경됨 -->
+        <input type="text" v-model="msg">
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                msg: "hello vue.js!!"
+            },
+            watch: {
+                msg: function(data) {
+                    console.log("msg의 값이 바뀝니다. : ", data);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
