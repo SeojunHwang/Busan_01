@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 ES6</title>
+
+    <script>
+        // var와 let의 차이
+        // var는 함수를 기준으로 변수를 사용할 수 있음
+        // let은 코드 블럭을 기준으로 변수를 사용할 수 있음
+
+        function valueScope() {
+            if (true) {
+                var val1 = 100;
+                let val2 = 200;
+
+                console.log("var로 선언한 변수 val1의 값 : " + val1);
+                console.log("let으로 선언한 변수 val2의 값 : " + val2);
+            }
+            console.log("----- -----");
+            // console.log("var로 선언한 변수 val1을 if문 밖에서 출력 : " + val1);
+            // console.log("let으로 선언한 변수 val2를 if문 밖에서 출력 : " + val2);
+
+        }
+
+        valueScope();
+
+        // console.log("var로 선언한 변수 val1을 함수 밖에서 호출 : " + val1);
+
+        var str1 = "var로 선언한 변수";
+        let str2 = "let으로 선언한 변수";
+
+        console.log(str1);
+        console.log(str2);
+
+        var str1 = "var로 재선언한 변수";
+        str2 = "let으로 선언한 변수에 데이터 변경하기";
+
+        console.log(str1);
+        console.log(str2);
+
+        const val3 = "상수 사용";
+        console.log(val3);
+        // val3 = "const를 사용한 변수에 데이터 변경";
+        // console.log(val3);
+
+        console.log("----- 화살표 함수 선언 방법 -----");
+
+        function func1() {
+            console.log("기존의 함수 선언 방식 1");
+        }
+
+        let func2 = function() {
+            console.log("기존의 함수 선언 방식 2");
+        }
+
+        let func3 = (data1, data2) => {
+            console.log("화살표 함수 선언 방식");
+            console.log(data1, data2);
+        }
+
+        let func4 = data1 => {
+            console.log(data1);
+        }
+
+        func1();
+        func2();
+        func3("첫번째 매개변수", "두번째 매개변수");
+        func4("매개변수가 1개 일때");
+
+    </script>
+
+    <!-- 모듈을 import 하여 사용 시 html 파일에서 script 태그에 type="module" 속성을 사용해야 함 -->
+    <script type="module" src="./main.js"></script>
+
+
+    <script>
+        // 오늘 낮부터 밤 사이 동쪽내륙 중심 강한 돌풍과 천둥.번개를 동반한 강한 소나기 유의, 전국 무더위 유의
+        let weather1 = "동쪽내륙";
+        let weather2 = "돌풍";
+        let weather3 = "천둥, 번개";
+        let weather4 = "강한 소나기";
+
+        console.log(" ----- 기존 방식으로 출력 ----- ");
+
+        let weather = "오늘 낮부터 밤 사이 " + weather1 + "중심 강한 " + weather2 + "과 " + weather3 + "를 동반한 " + weather4 + " 유의, 전국 무더위 유의";
+
+        console.log(weather);
+
+        weather = `오늘 낮부터 밤 사이 ${weather1} 중심 강한 ${weather2}과 ${weather3}를 동반한 ${weather4} 유의, 전국 무더위 유의`;
+
+        console.log(weather);
+
+        // 기존 방식의 html 태그 생성
+        var tbody = "<tr>";
+            tbody += "<td>" + weather1 + "</td>";
+            tbody += "<td>" + weather2 + "</td>";
+            tbody += "<td>" + weather3 + "</td>";
+            tbody += "<td>" + weather4 + "</td>";
+            tbody += "</tr>";
+        
+        var tbody = `
+            <tr>
+                <td>${weather1}</td>
+                <td>${weather2}</td>
+                <td>${weather3}</td>
+                <td>${weather4}</td>
+            </tr>
+        `;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
