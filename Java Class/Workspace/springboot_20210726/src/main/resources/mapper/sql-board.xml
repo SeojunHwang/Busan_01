@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="btc.mapper.BoardMapper">
+	<select id="selectBoardList" resultType="btc.dto.BoardDto">
+		<![CDATA[
+			SELECT
+				board_idx, title, hit_cnt,
+				DATE_FORMAT(created_date, '%y.%m.%d %H:%i:%s') AS created_date
+			FROM
+				t_board
+			WHERE
+				deleted_yn = 'N'
+			ORDER BY
+				board_idx DESC
+		]]>
+	</select>
+	
+	<insert id="insertBoard" parameterType="btc.dto.BoardDto">
+		<![CDATA[
+			INSERT INTO t_board
+				(title, contents, creator_id, created_date)
+			VALUES
+				(#{title}, #{contents}, #{creatorId}, NOW())
+		]]>
+	</insert>
+	
+	<select id="selectBoardDetail" parameterType="int" resultType="btc.dto.BoardDto">
+		<![CDATA[
+			SELECT
+				board_idx, title, contents, hit_cnt,
+				DATE_FORMAT(created_date, '%Y.%m.%d %H:%i:%s') AS created_date,
+				creator_id, updated_date, updater_id
+			FROM
+				t_board
+			WHERE
+				board_idx = #{boardIdx}
+		]]>
+	</select>
+	
+	<update id="updateBoard" parameterType="btc.dto.BoardDto">
+		<![CDATA[
+			UPDATE
+				t_board
+			SET
+				title = #{title},
+				contents = #{contents},
+				updated_date = NOW(),
+				updater_id = #{updaterId}
+			WHERE
+				board_idx = #{boardIdx}
+		]]>
+	</update>
+	
+<!--	<delete id="deleteBoard" parameterType="int">
+		<![CDATA[
+			DELETE FROM
+				t_board
+			WHERE
+				board_idx = #{boardIdx}
+		]]>
+	</delete>-->
+	
+	<update id="deleteBoard" parameterType="int">
+		<![CDATA[
+			UPDATE t_board SET
+				deleted_yn = 'Y'
+			WHERE
+				board_idx = #{boardIdx}
+		]]>
+	</update>
+</mapper>

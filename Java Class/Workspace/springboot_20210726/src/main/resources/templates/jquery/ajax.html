@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+	$(document).ready(function() {
+		$("#btnAjax").on("click", function() {
+			$.ajax({
+				url: "/jquery/ajax",
+				type: "post",
+				success: function(data) {
+					alert("ajax 통신이 성공했습니다.");
+					console.log(data);
+				},
+				error: function() {
+					alert("ajax 통신 중 오류가 발생했습니다.");
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<header class="container">
+		<div class="jumbotron">
+			<h1>jquery를 사용한 ajax 통신</h1>
+		</div>
+	</header>
+	<main class="container p-5">
+		<button type="button" id="btnAjax" class="btn btn-primary">jquery로 ajax 통신</button>
+	</main>
+	<footer class="jumbotron">
+		<div class="container">
+			<p class="text-center">made by btc</p>
+		</div>
+	</footer>
+	
+</body>
+</html>
